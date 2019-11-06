@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Tone from 'tone';
 import QuarterNote from '../svgs/QuarterNote';
 
 class SongContainer extends Component {
     playSong = () => {
+        // console.log(this.props.song);
         Tone.Transport.stop();
         Tone.Transport.cancel(0);
     
@@ -49,4 +51,16 @@ class SongContainer extends Component {
     }
 }
 
-export default SongContainer;
+const mapStateToProps = state => {
+    return {
+        song: state.song
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        clearSong: () => dispatch({ type: 'CLEAR_SONG' })
+    };
+};
+
+export default connect( mapStateToProps, mapDispatchToProps )(SongContainer);

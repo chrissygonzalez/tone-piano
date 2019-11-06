@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Tone from 'tone';
 
 class PianoContainer extends Component {
     handleNote = (note) => {
         this.playTone(note);
-        this.props.saveNote(note);
+        this.props.addNote(note);
     }
 
     playTone = (note) => {
@@ -27,5 +28,11 @@ class PianoContainer extends Component {
         )
     }
 }
+   
+const mapDispatchToProps = dispatch => {
+    return {
+        addNote: (note) => dispatch({ type: 'ADD_NOTE', note: note })
+    };
+};
 
-export default PianoContainer;
+export default connect( null, mapDispatchToProps )(PianoContainer);
