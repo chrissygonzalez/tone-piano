@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Tone from 'tone';
-import QuarterNote from '../svgs/QuarterNote';
+import Note from '../components/Note';
 
 class SongContainer extends Component {
+    refsCollection = {};
+
     playSong = () => {
         // console.log(this.props.song);
+        console.log(this.refsCollection);
         Tone.Transport.stop();
         Tone.Transport.cancel(0);
     
@@ -33,7 +36,6 @@ class SongContainer extends Component {
 
     render() {
         const inlineBlock = {display: 'inline-block', padding: '5px'}
-
         return (
             <div className="songContainer">
                 <form>
@@ -45,7 +47,9 @@ class SongContainer extends Component {
                 </form>
                 <button onClick={this.playSong}>Play Song</button>
                 <button onClick={this.props.clearSong}>Clear Song</button>
-                <div>{this.props.song.map((note, index) => <div key={index} id={index} className="song" style={inlineBlock}>{note.note} <QuarterNote /></div>)}</div>
+                <div>{this.props.song.map((note, index) => {
+                    return <Note ref={(instance)=>{this.refsCollection[note] = instance;}} key={index} style={inlineBlock} note={note}/>})}
+                </div>
             </div>
         )
     }
