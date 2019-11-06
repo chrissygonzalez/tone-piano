@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Tone from 'tone';
+import QuarterNote from '../svgs/QuarterNote';
 
 class SongContainer extends Component {
     playSong = () => {
@@ -32,15 +33,17 @@ class SongContainer extends Component {
         const inlineBlock = {display: 'inline-block', padding: '5px'}
 
         return (
-            <div>
+            <div className="songContainer">
                 <form>
                     <label htmlFor="title">Title</label>
-                    <input name="title" type="text" />
+                    <input name="title" type="text" /><br />
+                    <label htmlFor="musician_name">Your Name</label>
+                    <input name="musician_name" type="text" />
                     <input type="submit" value="Save" />
                 </form>
                 <button onClick={this.playSong}>Play Song</button>
                 <button onClick={this.props.clearSong}>Clear Song</button>
-                <div>{this.props.song.map((note, index) => <div key={index} id={index} className="song" style={inlineBlock}>{note.note}</div>)}</div>
+                <div>{this.props.song.map((note, index) => <div key={index} id={index} className="song" style={inlineBlock}>{note.note} <QuarterNote /></div>)}</div>
             </div>
         )
     }
