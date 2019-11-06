@@ -3,7 +3,8 @@ async function getSongs(){
         accept: 'application/json',
     });
     const data = await response.json();
-    return console.log(data);
+    // return console.log(data);
+    return data;
 }
 
 const Test = { getSongs };
