@@ -3,45 +3,27 @@ import './App.css';
 import Test from './test';
 import Tone from 'tone';
 import PianoContainer from './containers/PianoContainer';
+import SongContainer from './containers/SongContainer';
 
 class App extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      song: []
+    }
   }
 
-  playSong = () => {
-    Tone.Transport.stop();
-    Tone.Transport.cancel(0);
-
-    let synth = new Tone.Synth().toMaster();
-    let counter = 0;
-    new Tone.Part(function(time, value){
-      Tone.Draw.schedule(function(){
-        // gross temporary animation
-        let notes = document.getElementsByClassName('song');
-        let notesArr = Array.from(notes);
-        notesArr.map(note => note.style.backgroundColor = '#fff');
-
-        let note = document.getElementById(counter)
-        note.style.backgroundColor = 'yellow';
-        counter += 1;
-      }, time)
-
-      synth.triggerAttackRelease(value.note, "8n", time, value.velocity);
-    }, this.state.song).start(0);
-
-    Tone.Transport.start("+0.1");
+  saveNote = (note) => {
+    console.log(note);
   }
 
   render() {
     Test.getSongs();
-    const inlineBlock = {display: 'inline-block', padding: '5px'}
 
     return (
       <div className="App">
-        <button onClick={this.playSong}>Play Song</button>
-        <div>{this.state.song.map((note, index) => <div key={index} id={index} className="song" style={inlineBlock}>{note.note}</div>)}</div>
-        <PianoContainer />
+        <SongContainer song={this.state.song}/>
+        <PianoContainer song={this.state.song} saveNote={this.saveNote} />
       </div>
     );
   }
