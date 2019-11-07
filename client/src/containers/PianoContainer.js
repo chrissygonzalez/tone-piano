@@ -15,7 +15,7 @@ class PianoContainer extends Component {
 
     render() {
         return (
-            <div>
+            <div className="piano">
                 <button onClick={() => this.handleNote('C4')}>C</button>
                 <button onClick={() => this.handleNote('D4')}>D</button>
                 <button onClick={() => this.handleNote('E4')}>E</button>

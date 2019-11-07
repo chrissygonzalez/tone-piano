@@ -27,8 +27,8 @@ class App extends Component {
 
             <Route path="/new">
               <div className="App">
-                <SongContainer />
                 <PianoContainer />
+                <SongContainer />
               </div>
             </Route>
           </Switch>

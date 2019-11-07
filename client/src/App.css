@@ -21,8 +21,52 @@
   color: #09d3ac;
 }
 
+/* move this somewhere more appropriate later */
+
+body {
+  background-color: #DDC5DD;
+}
+
+.navbar {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.navlist {
+  list-style-type: none;
+}
+
+.navlist-item {
+  display: inline-block;
+  margin-right: 50px;
+}
+
 .songContainer {
-  height: 150px;
+  min-height: 150px;
+  background-color: #fff;
+  width: 70%;
+  margin: auto;
+}
+
+.songContainer button {
+  background-color: #C56FC5;
+  color: #fff;
+  border-radius: 3px;
+  border: none;
+  padding: 5px;
+}
+
+.piano {
+  margin-bottom: 50px;
+}
+
+.piano button {
+  background-color: #fff;
+  border: none;
+  height: 100px;
+  margin: 2px;
+  border-radius: 0 0 3px 3px;
 }
 
 .activeNote {

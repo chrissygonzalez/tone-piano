@@ -40,7 +40,7 @@ class SongContainer extends Component {
             <div className="songContainer">
                 <form>
                     <label htmlFor="title">Title</label>
-                    <input name="title" type="text" /><br />
+                    <input name="title" type="text" />
                     <label htmlFor="musician_name">Your Name</label>
                     <input name="musician_name" type="text" />
                     <input type="submit" value="Save" />
