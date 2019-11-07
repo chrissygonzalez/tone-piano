@@ -24,3 +24,16 @@
 .songContainer {
   height: 150px;
 }
+
+.activeNote {
+  animation: 0.5s linear 0s turnYellow;
+  background-color: white;
+  /* border: 1px solid red; */
+}
+
+@keyframes turnYellow {
+  0% {background-color: white;}
+  50% {background-color: yellow;}
+  100% {background-color: white;}
+}
+

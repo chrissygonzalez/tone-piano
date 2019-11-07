@@ -4,27 +4,21 @@ import Tone from 'tone';
 import Note from '../components/Note';
 
 class SongContainer extends Component {
-    refsCollection = {};
+    // refsCollection = {};
 
     playSong = () => {
-        // console.log(this.props.song);
-        console.log(this.refsCollection);
         Tone.Transport.stop();
         Tone.Transport.cancel(0);
     
         let synth = new Tone.Synth().toMaster();
         let counter = 0;
 
+        this.resetNotes();
+
         new Tone.Part(function(time, value){
           Tone.Draw.schedule(function(){
-
-            // gross temporary animation
-            let notes = document.getElementsByClassName('song');
-            let notesArr = Array.from(notes);
-            notesArr.map(note => note.style.backgroundColor = '#fff');
-    
-            let note = document.getElementById(counter)
-            note.style.backgroundColor = 'yellow';
+            let playingNote = document.getElementById('note-' + counter);
+            playingNote.classList.add('activeNote');
             counter += 1;
           }, time)
     
@@ -32,7 +26,13 @@ class SongContainer extends Component {
         }, this.props.song).start(0);
     
         Tone.Transport.start("+0.1");
-      }
+    }
+
+    resetNotes = () => {
+        let notes = document.getElementsByClassName('song');
+        let notesArr = Array.from(notes);
+        notesArr.map(note => note.classList.remove('activeNote'));
+    }
 
     render() {
         const inlineBlock = {display: 'inline-block', padding: '5px'}
@@ -48,7 +48,7 @@ class SongContainer extends Component {
                 <button onClick={this.playSong}>Play Song</button>
                 <button onClick={this.props.clearSong}>Clear Song</button>
                 <div>{this.props.song.map((note, index) => {
-                    return <Note ref={(instance)=>{this.refsCollection[note] = instance;}} key={index} style={inlineBlock} note={note}/>})}
+                    return <Note key={index} index={'note-' + index} style={inlineBlock} note={note}/>})}
                 </div>
             </div>
         )
