@@ -1,5 +1,5 @@
 export default function songReducer(state = {
-    song: [],
+    song: [], songs: [], requesting: false
   }, action) {
     switch (action.type) {
       case 'ADD_NOTE':
@@ -15,9 +15,23 @@ export default function songReducer(state = {
             return { song: [{ time: 0, note: action.note }] }
         }
 
-    case 'CLEAR_SONG':
-        return {song: []};
-  
+      case 'START_LISTING_SONGS':
+          return {
+            ...state,
+            songs: [...state.songs],
+            requesting: true
+          }
+
+      case 'LIST_SONGS':
+          return {
+            ...state,
+            songs: action.songs,
+            requesting: false
+          }
+
+      case 'CLEAR_SONG':
+          return {song: []};
+
       default:
         return state;
     }
