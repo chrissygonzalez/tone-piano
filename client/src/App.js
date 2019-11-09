@@ -1,23 +1,14 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-import Test from './test';
-import { connect } from 'react-redux';
 import PianoContainer from './containers/PianoContainer';
 import SongContainer from './containers/SongContainer';
+import SongList from './containers/SongList';
 import NavBar from './components/NavBar';
-import { fetchSongs } from './actions/fetchSongs'
 
 class App extends Component {
 
-  handleClick = () => {
-    this.props.fetchSongs();
-    console.log(this.props.songs)
-  }
-
   render() {
-    Test.getSongs();
-
     return (
       <Router>
         <div>
@@ -29,7 +20,7 @@ class App extends Component {
             </Route>
 
             <Route path="/songs">
-              <div>All Songs <button onClick={this.handleClick}>Get Songs</button> {this.props.songs.map(song => song.title)}</div>
+                <SongList />
             </Route>
 
             <Route path="/new">
@@ -44,13 +35,5 @@ class App extends Component {
     );
   }
 }
-
-function mapDispatchToProps(dispatch){
-  return { fetchSongs: () => dispatch(fetchSongs()) }
-}
  
-function mapStateToProps(state){
-  return {songs: state.songs}
-}
- 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default App;

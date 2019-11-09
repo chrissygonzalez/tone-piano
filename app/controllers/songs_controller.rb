@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
     def index
         songs = Song.all
-        render json: songs
+        render json: songs, include: [:notes, :song_notes]
     end
 
     def new
