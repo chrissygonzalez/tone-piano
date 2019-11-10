@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
     def show
-        note = Note.find_by(id: params[:id])
-        render json: note
+        this_note = Note.find_by(id: params[:id])
+        render json: this_note
     end
 
     def create
@@ -11,6 +11,6 @@ class NotesController < ApplicationController
     private
 
     def note_params
-        params.permit(:song, :tone, :duration)
+        params.permit(:note, :time)
     end
 end

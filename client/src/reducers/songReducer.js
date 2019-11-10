@@ -5,13 +5,11 @@ export default function songReducer(state = {
       case 'ADD_NOTE':
         if (state.song.length > 0) {
             const lastSongTime = state.song[state.song.length - 1].time;
-            // console.log(state.song);
             return {
                 ...state,
                 song: [...state.song, { time: lastSongTime + 0.5, note: action.note }]
             };
         } else {
-            // console.log(state.song);
             return { 
               ...state,
               song: [{ time: 0, note: action.note }] 
@@ -39,13 +37,9 @@ export default function songReducer(state = {
           }
         
       case 'START_SAVING_SONG':
-          console.log('hitting START_SAVING_SONG')
-          console.log(action)
           return { ...state };
 
       case 'SAVE_SONG':
-        console.log('here');
-        console.log(action)
         return { 
           ...state,
           songs: [...state.songs, action.song],

@@ -5,9 +5,24 @@ import Tone from 'tone';
 import Note from '../components/Note';
 
 class SongContainer extends Component {
-    // refsCollection = {};
+    constructor(){
+        super();
+        this.state = {
+            title: "",
+            musician_name: ""
+        }
+    }
+
+    handleChange = event => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
     handleSave = () => {
-        this.props.postSong();
+        const songObject = {...this.state, notes_attributes: this.props.song}
+        // console.log(songObject);
+        this.props.postSong(songObject);
       }
 
     playSong = () => {
@@ -17,7 +32,7 @@ class SongContainer extends Component {
         let synth = new Tone.Synth().toMaster();
         let counter = 0;
 
-        this.resetNotes();
+        this.resetNoteStyles();
 
         new Tone.Part(function(time, value){
           Tone.Draw.schedule(function(){
@@ -26,13 +41,13 @@ class SongContainer extends Component {
             counter += 1;
           }, time)
     
-          synth.triggerAttackRelease(value.note, "8n", time, value.velocity);
+          synth.triggerAttackRelease(value.note, "8n", time);
         }, this.props.song).start(0);
     
         Tone.Transport.start("+0.1");
     }
 
-    resetNotes = () => {
+    resetNoteStyles = () => {
         let notes = document.getElementsByClassName('song');
         let notesArr = Array.from(notes);
         notesArr.map(note => note.classList.remove('activeNote'));
@@ -44,9 +59,9 @@ class SongContainer extends Component {
             <div className="songContainer">
                 <form>
                     <label htmlFor="title">Title</label>
-                    <input name="title" type="text" />
+                    <input name="title" type="text" onChange={ e => {this.handleChange(e)}}/>
                     <label htmlFor="musician_name">Your Name</label>
-                    <input name="musician_name" type="text" />
+                    <input name="musician_name" type="text" onChange={ e => {this.handleChange(e)}} />
                     <input type="submit" value="Save" />
                 </form>
                 <button onClick={this.playSong}>Play Song</button>
@@ -69,7 +84,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         clearSong: () => dispatch({ type: 'CLEAR_SONG' }),
-        postSong: () => dispatch(postSong())
+        postSong: (songObject) => dispatch(postSong(songObject))
     };
 };
 

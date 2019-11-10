@@ -16,10 +16,7 @@ class SongList extends Component {
                 <button onClick={this.handleClick}>Get Songs</button> 
                 <ul>
                 {this.props.songs.map((song, index) => { 
-                    return <li key={index}>{song.title} by {song.musician_name} Notes: {song.notes ? song.notes.map(note => note.tone) : null}
-                    {/* if ({song.notes}) {
-                        {song.notes.map(note => note.tone)}
-                    } */}
+                    return <li key={index}>{song.title} by {song.musician_name} Notes: {song.notes ? song.notes.map(note => note.note) : null}
                     </li>
                     })}
                 </ul>

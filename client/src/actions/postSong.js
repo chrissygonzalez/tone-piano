@@ -1,4 +1,5 @@
-export function postSong() {
+export function postSong(songObject) {
+  // console.log(songObject);
     return (dispatch) => {
       dispatch({ type: 'START_SAVING_SONG' });
       fetch('api/songs', {
@@ -6,18 +7,11 @@ export function postSong() {
           headers: {
             'Content-Type': 'application/json'
         },
-          body: JSON.stringify({
-            "title": "Does This Work?",
-            "musician_name": "Another One",
-            "notes_attributes": [{
-                "tone": 'C4',
-                "duration": '4n'
-            }]
-          })
+          body: JSON.stringify(songObject)
       })
         .then(response => response.json())
         .then(song => {
-          console.log(song);
+          // console.log(song);
           return dispatch({ type: 'SAVE_SONG', song })
         });
     };

@@ -9,9 +9,9 @@ song_a = Song.create(title: 'Jingle Bells', musician_name: 'Jack Frost')
 song_b = Song.create(title: 'Puff the Magic Dragon', musician_name: 'Little Jackie Paper')
 song_c = Song.create(title: 'This Song', musician_name: 'This Artist')
 
-note_a = Note.create(tone: 'C4', duration: '4n')
-note_b = Note.create(tone: 'D4', duration: '4n')
-note_c = Note.create(tone: 'E4', duration: '4n')
+note_a = Note.create(note: 'C4', time: '4n')
+note_b = Note.create(note: 'D4', time: '4n')
+note_c = Note.create(note: 'E4', time: '4n')
 
 song_note_a = SongNote.create(song: song_a, note: note_a, time: '0:0')
 song_note_b = SongNote.create(song: song_a, note: note_b, time: '0:1')
