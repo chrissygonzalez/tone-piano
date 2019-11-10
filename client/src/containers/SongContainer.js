@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { postSong } from '../actions/postSong'
 import Tone from 'tone';
 import Note from '../components/Note';
 
 class SongContainer extends Component {
     // refsCollection = {};
+    handleSave = () => {
+        this.props.postSong();
+      }
 
     playSong = () => {
         Tone.Transport.stop();
@@ -47,6 +51,7 @@ class SongContainer extends Component {
                 </form>
                 <button onClick={this.playSong}>Play Song</button>
                 <button onClick={this.props.clearSong}>Clear Song</button>
+                <button onClick={this.handleSave}>Save Song</button>
                 <div>{this.props.song.map((note, index) => {
                     return <Note key={index} index={'note-' + index} style={inlineBlock} note={note}/>})}
                 </div>
@@ -63,7 +68,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        clearSong: () => dispatch({ type: 'CLEAR_SONG' })
+        clearSong: () => dispatch({ type: 'CLEAR_SONG' }),
+        postSong: () => dispatch(postSong())
     };
 };
 

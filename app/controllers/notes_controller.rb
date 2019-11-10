@@ -11,6 +11,6 @@ class NotesController < ApplicationController
     private
 
     def note_params
-        params.require(:note).permit(:tone, :duration)
+        params.permit(:song, :tone, :duration)
     end
 end

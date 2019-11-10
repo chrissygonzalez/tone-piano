@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
     def index
         songs = Song.all
-        render json: songs, include: [:notes, :song_notes]
+        render json: songs, include: [:notes]
     end
 
     def new
@@ -9,13 +9,16 @@ class SongsController < ApplicationController
     end
 
     def create
-        song = Song.find_by title: params[:song][:title] ||= nil
-        if song.nil?
-            Song.create(song_params)
-            render json: song.to_json
-        else
-            render json: {message: 'That song already exists.'}
-        end
+        # song = Song.find_by title: params[:song][:title] ||= nil
+        # song = Song.new
+        # if song.nil?
+        # binding.pry
+            song = Song.create(song_params)
+            # render json: song.to_json
+            render json: {title: song.title, musician_name: song.musician_name}
+        # else
+        #     render json: {message: 'That song already exists.'}
+        # end
     end
 
     def show
@@ -26,6 +29,7 @@ class SongsController < ApplicationController
     private
     
     def song_params
-        params.require(:song).permit(:title, :musician_name)
+        params.permit(:title, :musician_name,
+        notes_attributes: [:tone, :duration])
     end
 end

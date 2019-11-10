@@ -12,8 +12,17 @@ export default function songReducer(state = {
             };
         } else {
             // console.log(state.song);
-            return { song: [{ time: 0, note: action.note }] }
+            return { 
+              ...state,
+              song: [{ time: 0, note: action.note }] 
+            };
         }
+
+      case 'CLEAR_SONG':
+          return {
+            ...state,
+            song: []
+          };
 
       case 'START_LISTING_SONGS':
           return {
@@ -28,9 +37,21 @@ export default function songReducer(state = {
             songs: action.songs,
             requesting: false
           }
+        
+      case 'START_SAVING_SONG':
+          console.log('hitting START_SAVING_SONG')
+          console.log(action)
+          return { ...state };
 
-      case 'CLEAR_SONG':
-          return {song: []};
+      case 'SAVE_SONG':
+        console.log('here');
+        console.log(action)
+        return { 
+          ...state,
+          songs: [...state.songs, action.song],
+          requesting: false
+        };
+
 
       default:
         return state;
