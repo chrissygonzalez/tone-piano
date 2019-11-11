@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-dom';
 import './App.css';
 import PianoContainer from './containers/PianoContainer';
 import SongContainer from './containers/SongContainer';
 import SongList from './containers/SongList';
 import NavBar from './components/NavBar';
+import SongView from './components/SongView';
 
 class App extends Component {
 
@@ -16,12 +17,15 @@ class App extends Component {
 
           <Switch>
             <Route exact path="/">
-              <div>Welcome to the Tone Piano! I might make this the index and make the third route song show.</div>
+              <SongList />
             </Route>
 
             <Route path="/songs">
                 <SongList />
             </Route>
+
+            {/* <Route path="/songs/:id" children={<SongView />} /> */}
+
 
             <Route path="/new">
               <div className="App">
