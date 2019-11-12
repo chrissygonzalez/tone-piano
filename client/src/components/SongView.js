@@ -1,9 +1,7 @@
 import React from 'react';
-// import {withRouter} from 'react-router';
-import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-dom';
 
-const SongView = () => {
-    let { id } = useParams();
+const SongView = ({match}) => {
+  const { params: { id } } = match;
   return (
     <div>
         <h3>ID: {id}</h3>

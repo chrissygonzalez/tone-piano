@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchSongs } from '../actions/fetchSongs'
+import { Link } from 'react-router-dom';
 // import Note from '../components/Note';
 
 class SongList extends Component {
@@ -18,9 +19,9 @@ class SongList extends Component {
                     All Songs 
                     <ul>
                     {this.props.songs.map((song, index) => { 
-                        // const songUrl = `/songs/${song.id}`
+                        const songUrl = `/songs/${song.id}`
                         return <li key={index}>
-                                <a href="">{song.title} by {song.musician_name}</a>
+                                <Link to={songUrl}>{song.title} by {song.musician_name}</Link>
                                 Notes: {song.notes ? song.notes.map(note => note.note) : null}
                         </li>
                         })}

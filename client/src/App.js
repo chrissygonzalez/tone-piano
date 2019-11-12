@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import PianoContainer from './containers/PianoContainer';
 import SongContainer from './containers/SongContainer';
@@ -20,12 +20,11 @@ class App extends Component {
               <SongList />
             </Route>
 
-            <Route path="/songs">
+            <Route exact path="/songs">
                 <SongList />
             </Route>
 
-            {/* <Route path="/songs/:id" children={<SongView />} /> */}
-
+            <Route exact path="/songs/:id" component={SongView} />
 
             <Route path="/new">
               <div className="App">
