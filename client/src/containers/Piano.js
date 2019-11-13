@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Tone from 'tone';
 
-class PianoContainer extends Component {
+class Piano extends Component {
     handleNote = (note) => {
         this.playTone(note);
         this.props.addNote(note);
@@ -35,4 +35,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect( null, mapDispatchToProps )(PianoContainer);
+export default connect( null, mapDispatchToProps )(Piano);

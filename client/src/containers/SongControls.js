@@ -4,7 +4,7 @@ import { postSong } from '../actions/postSong'
 import Tone from 'tone';
 import Note from '../components/Note';
 
-class SongContainer extends Component {
+class SongControls extends Component {
     constructor(){
         super();
         this.state = {
@@ -88,4 +88,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect( mapStateToProps, mapDispatchToProps )(SongContainer);
+export default connect( mapStateToProps, mapDispatchToProps )(SongControls);

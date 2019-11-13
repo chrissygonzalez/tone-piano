@@ -1,11 +1,11 @@
 import React from 'react';
-import SongThumb from '../components/SongThumb';
+import SongThumb from './SongThumb';
 
-const SongList = () => {
+const SongList = (props) => {
     return <div>
                 All Songs 
                 <ul>
-                {this.props.songs.map((song, index) => { 
+                {props.songs.map((song, index) => { 
                     return <SongThumb key={index} song={song} />
                     })}
                 </ul>

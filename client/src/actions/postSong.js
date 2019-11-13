@@ -2,7 +2,7 @@ export function postSong(songObject) {
   // console.log(songObject);
     return (dispatch) => {
       dispatch({ type: 'START_SAVING_SONG' });
-      fetch('api/songs', {
+      fetch('/api/songs', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

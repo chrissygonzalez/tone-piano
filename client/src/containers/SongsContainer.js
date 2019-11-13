@@ -3,8 +3,9 @@ import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchSongs } from '../actions/fetchSongs'
 import { postSong } from '../actions/postSong'
-import SongList from '../containers/SongList';
+import SongList from '../components/SongList';
 import SongView from '../components/SongView';
+import ComposeContainer from '../containers/ComposeContainer';
 
 class SongsContainer extends Component {
     componentDidMount() {
@@ -17,8 +18,13 @@ class SongsContainer extends Component {
                 <Switch>
                     <Route exact path="/songs/:id" render={(routerProps) => <SongView {...routerProps} songs={this.props.songs}/>} />
                 </Switch>
+
                 <Switch>
                     <Route exact path="/songs" render={() => <SongList songs={this.props.songs} />} />
+                </Switch>
+
+                <Switch>
+                    <Route exact path="/songs/new" component={ComposeContainer} />
                 </Switch>
             </div>
         )
