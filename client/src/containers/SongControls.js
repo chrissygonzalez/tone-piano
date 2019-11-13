@@ -27,7 +27,7 @@ class SongControls extends Component {
     render() {
         const inlineBlock = {display: 'inline-block', padding: '5px'}
         return (
-            <div className="songContainer">
+            <div className="songControls">
                 <form>
                     <label htmlFor="title">Title</label>
                     <input name="title" type="text" onChange={ e => {this.handleChange(e)}}/>

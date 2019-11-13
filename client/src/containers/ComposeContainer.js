@@ -4,7 +4,7 @@ import Piano from './Piano';
 
 const ComposeContainer = (props) => {
   return (
-    <div>
+    <div className="text-center">
         <Piano />
         <SongControls />
     </div>

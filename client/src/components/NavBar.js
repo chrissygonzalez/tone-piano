@@ -5,8 +5,8 @@ const NavBar = () => {
   return (
     <div className="navbar">
       <ul className="navlist">
-        <li className="navlist-item"><NavLink to="/">Home</NavLink></li>
-        <li className="navlist-item"><NavLink to="/songs">All Songs</NavLink></li>
+        <li className="navlist-item"><NavLink to="/">All Songs</NavLink></li>
+        {/* <li className="navlist-item"><NavLink to="/songs">All Songs</NavLink></li> */}
         <li className="navlist-item"><NavLink to="/new">New Song</NavLink></li>
       </ul>
     </div>
