@@ -24,7 +24,7 @@ class App extends Component {
                 <SongList />
             </Route>
 
-            <Route exact path="/songs/:id" component={SongView} />
+            <Route exact path="/songs/:id" render={(routerProps) => <SongView {...routerProps} />} />
 
             <Route path="/new">
               <div className="App">

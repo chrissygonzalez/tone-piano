@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchSongs } from '../actions/fetchSongs'
-import { Link } from 'react-router-dom';
-// import Note from '../components/Note';
+import SongThumb from '../components/SongThumb';
 
 class SongList extends Component {
     componentDidMount() {
@@ -11,7 +10,7 @@ class SongList extends Component {
 
     handleClick = () => {
         this.props.fetchSongs();
-        console.log(this.props.songs)
+        // console.log(this.props.songs)
       }
 
     render(){
@@ -19,11 +18,8 @@ class SongList extends Component {
                     All Songs 
                     <ul>
                     {this.props.songs.map((song, index) => { 
-                        const songUrl = `/songs/${song.id}`
-                        return <li key={index}>
-                                <Link to={songUrl}>{song.title} by {song.musician_name}</Link>
-                                Notes: {song.notes ? song.notes.map(note => note.note) : null}
-                        </li>
+                        // console.log(song);
+                        return <SongThumb key={index} song={song} />
                         })}
                     </ul>
                 </div>
