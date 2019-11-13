@@ -4,6 +4,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 import songReducer from './reducers/songReducer.js';
 import './index.css';
 import App from './App';
@@ -13,8 +14,10 @@ const store = createStore(songReducer, composeWithDevTools(applyMiddleware(thunk
 
 ReactDOM.render(
     <Provider store={store}>
-      <App />
-    </Provider> /* code change */,
+      <Router>
+        <App />
+      </Router>
+    </Provider>,
     document.getElementById('root')
   );
 

@@ -1,11 +1,12 @@
 import React from 'react';
 
 const SongView = (props) => {
-    console.log(props.match.params.id);
-//   const { params: { id } } = match;
+    const songs = props.songs;
+    const id = props.match.params.id - 1;
   return (
     <div>
-        {/* <h3>ID: {id}</h3> */}
+        Song View!
+        {songs[id] ? songs[id].title : null}
     </div>
   );
 };
