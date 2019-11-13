@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Tone from 'tone';
+import { playTone } from '../tone/SongFunctions';
 
 class Piano extends Component {
     handleNote = (note) => {
-        this.playTone(note);
+        playTone(note);
         this.props.addNote(note);
-    }
-
-    playTone = (note) => {
-        let synth = new Tone.Synth().toMaster();
-        synth.triggerAttackRelease(note, "8n");
     }
 
     render() {
