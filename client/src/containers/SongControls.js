@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { postSong } from '../actions/postSong'
 import Note from '../components/Note';
+import SongForm from '../components/SongForm';
 import { playSong } from '../tone/SongFunctions';
 
 class SongControls extends Component {
@@ -28,13 +29,8 @@ class SongControls extends Component {
         const inlineBlock = {display: 'inline-block', padding: '5px'}
         return (
             <div className="songControls">
-                <form>
-                    <label htmlFor="title">Title</label>
-                    <input name="title" type="text" onChange={ e => {this.handleChange(e)}}/>
-                    <label htmlFor="musician_name">Your Name</label>
-                    <input name="musician_name" type="text" onChange={ e => {this.handleChange(e)}} />
-                    <input type="submit" value="Save" />
-                </form>
+                <SongForm onChange={this.handleChange} title={this.state.title} musician_name={this.state.musician_name} />
+
                 <button onClick={() => {playSong(this.props.song)}}>Play Song</button>
                 <button onClick={this.props.clearSong}>Clear Song</button>
                 <button onClick={this.handleSave}>Save Song</button>
