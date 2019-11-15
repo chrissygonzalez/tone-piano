@@ -22,6 +22,12 @@ export default function songReducer(state = {
             song: []
           };
 
+      case 'LOAD_SAVED_SONG':
+        return {
+          ...state,
+          song: action.notes
+        };
+
       case 'START_LISTING_SONGS':
           return {
             ...state,

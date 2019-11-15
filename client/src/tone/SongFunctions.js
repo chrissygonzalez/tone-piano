@@ -1,8 +1,6 @@
 import Tone from 'tone';
 
 const playSong = (songState) => {
-    console.log(songState);
-
     Tone.Transport.stop();
     Tone.Transport.cancel(0);
 
