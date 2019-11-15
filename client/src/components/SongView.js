@@ -1,4 +1,5 @@
 import React from 'react';
+import SongControls from '../containers/SongControls';
 
 const SongView = (props) => {
     const songs = props.songs;
@@ -6,7 +7,8 @@ const SongView = (props) => {
   return (
     <div>
         Song View!
-        {songs[id] ? songs[id].title : null}
+        {songs[id] ? <SongControls savedSong={songs[id]} /> : null}
+
     </div>
   );
 };

@@ -14,6 +14,18 @@ class SongControls extends Component {
         }
     }
 
+    componentDidMount = () => {
+        if (this.props.savedSong){
+            console.log('saved song!')
+            this.setState({
+                title: this.props.savedSong.title,
+                musician_name: this.props.savedSong.musician_name
+            })
+        } else {
+            console.log('no saved song')
+        }
+    }
+
     handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value
@@ -48,6 +60,7 @@ const mapStateToProps = state => {
     };
 };
 
+//add a method to add all songs to redux song state
 const mapDispatchToProps = dispatch => {
     return {
         clearSong: () => dispatch({ type: 'CLEAR_SONG' }),
