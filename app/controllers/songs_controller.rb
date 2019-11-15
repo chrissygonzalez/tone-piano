@@ -10,7 +10,7 @@ class SongsController < ApplicationController
 
     def create
         song = Song.create(song_params)
-        render json: {title: song.title, musician_name: song.musician_name, notes: song.notes}
+        render json: {id: song.id, title: song.title, musician_name: song.musician_name, notes: song.notes}
     end
 
     def show

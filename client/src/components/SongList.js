@@ -2,6 +2,7 @@ import React from 'react';
 import SongThumb from './SongThumb';
 
 const SongList = (props) => {
+    console.log(props);
     return <div>
                 All Songs 
                 <ul>
