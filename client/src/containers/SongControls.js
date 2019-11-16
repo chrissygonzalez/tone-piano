@@ -23,7 +23,13 @@ class SongControls extends Component {
                 musician_name: this.props.savedSong.musician_name,
                 editable: false
             })
-        } 
+        } else {
+            console.log('no saved song')
+            console.log(this.props.song.notes)
+            // if (this.props.song.notes){
+            //     this.props.loadSavedSong(this.props.song.notes);
+            // }
+        }
     }
 
     handleChange = event => {
@@ -35,6 +41,12 @@ class SongControls extends Component {
     handleSave = () => {
         const songObject = {...this.state, notes_attributes: this.props.song}
         this.props.postSong(songObject);
+        this.setState({
+            title: "",
+            musician_name: "",
+            editable: true
+        });
+        this.props.clearSong();
       }
 
     render() {

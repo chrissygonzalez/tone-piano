@@ -6,7 +6,7 @@ import { postSong } from '../actions/postSong'
 import NavBar from '../components/NavBar';
 import SongList from '../components/SongList';
 import SongView from '../components/SongView';
-import ComposeContainer from '../containers/ComposeContainer';
+// import ComposeContainer from '../containers/ComposeContainer';
 
 class SongsContainer extends Component {
     componentDidMount() {
@@ -19,7 +19,7 @@ class SongsContainer extends Component {
                 <NavBar />
 
                 <Switch>
-                    <Route exact path="/songs/:id" render={(routerProps) => <SongView {...routerProps} songs={this.props.songs}/>} />
+                    <Route exact path="/songs/:id" render={(routerProps) => <SongView {...routerProps} songs={this.props.songs} newSong={false}/>} />
                 </Switch>
 
                 <Switch>
@@ -27,7 +27,7 @@ class SongsContainer extends Component {
                 </Switch>
 
                 <Switch>
-                    <Route exact path="/new" component={ComposeContainer} />
+                    <Route exact path="/new" render={() => <SongView newSong={true} />} />
                 </Switch>
             </div>
         )

@@ -1,14 +1,26 @@
 import React from 'react';
 import SongControls from '../containers/SongControls';
+import Piano from '../containers/Piano';
 
 const SongView = (props) => {
-    const songs = props.songs;
-    const id = props.match.params.id - 1;
+    if (!props.newSong) {
+      var songs = props.songs;
+      var id = props.match.params.id - 1;
+    }
   return (
-    <div>
-        Song View!
-        {songs[id] ? <SongControls savedSong={songs[id]} /> : null}
-
+    <div className="text-center">
+        {props.newSong ? (
+          <>
+          New Song!
+            <Piano />
+            <SongControls />
+          </>
+        ) : (
+          <>
+            Song View!
+            <SongControls savedSong={songs[id]} />
+          </>
+          )}
     </div>
   );
 };
