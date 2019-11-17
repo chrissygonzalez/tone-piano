@@ -13,12 +13,12 @@ const SongView = (props) => {
           <>
           New Song!
             <Piano />
-            <SongControls />
+            <SongControls showSong={null} editable={true} />
           </>
         ) : (
           <>
             Song View!
-            <SongControls savedSong={songs[id]} />
+            <SongControls showSong={songs[id]} editable={false} />
           </>
           )}
     </div>

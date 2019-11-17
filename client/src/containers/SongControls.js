@@ -16,20 +16,15 @@ class SongControls extends Component {
     }
 
     componentDidMount = () => {
-        if (this.props.savedSong){
-            this.props.loadSavedSong(this.props.savedSong.notes);
-            this.setState({
-                title: this.props.savedSong.title,
-                musician_name: this.props.savedSong.musician_name,
-                editable: false
-            })
-        } else {
-            console.log('no saved song')
-            console.log(this.props.song.notes)
-            // if (this.props.song.notes){
-            //     this.props.loadSavedSong(this.props.song.notes);
-            // }
-        }
+        this.setState({
+            title: this.props.showSong.title,
+            musician_name: this.props.showSong.musician_name,
+            editable: this.props.editable
+        })
+    }
+
+    componentWillUnmount = () => {
+        console.log('unmounting!');
     }
 
     handleChange = event => {
@@ -62,7 +57,7 @@ class SongControls extends Component {
                     <button onClick={this.handleSave}>Save Song</button>
                 </>
                 }
-                <div>{this.props.song.map((note, index) => {
+                <div>{this.props.song.notes.map((note, index) => {
                     return <Note key={index} index={'note-' + index} style={inlineBlock} note={note}/>})}
                 </div>
             </div>

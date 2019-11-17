@@ -1,31 +1,43 @@
 export default function songReducer(state = {
-    song: [], songs: [], requesting: false
+    song: {
+      notes: [],
+      title: "",
+      musician_name: ""
+    }, 
+    songs: [], 
+    requesting: false
   }, action) {
     switch (action.type) {
       case 'ADD_NOTE':
-        if (state.song.length > 0) {
-            const lastSongTime = state.song[state.song.length - 1].time;
+        if (state.song.notes.length > 0) {
+            const lastSongTime = state.song.notes[state.song.notes.length - 1].time;
             return {
                 ...state,
-                song: [...state.song, { time: lastSongTime + 0.5, note: action.note }]
+                ...state.song,
+                notes: [...state.song.notes, { time: lastSongTime + 0.5, note: action.note }]
             };
         } else {
             return { 
               ...state,
-              song: [{ time: 0, note: action.note }] 
+              ...state.song,
+              notes: [{ time: 0, note: action.note }] 
             };
         }
 
       case 'CLEAR_SONG':
           return {
             ...state,
-            song: []
+            song: {
+              notes: [],
+              title: "",
+              musician_name: ""
+            }
           };
 
       case 'LOAD_SAVED_SONG':
         return {
           ...state,
-          song: action.notes
+          song: action.song
         };
 
       case 'START_LISTING_SONGS':
@@ -36,6 +48,7 @@ export default function songReducer(state = {
           }
 
       case 'LIST_SONGS':
+        // console.log(action.songs)
           return {
             ...state,
             songs: action.songs,
