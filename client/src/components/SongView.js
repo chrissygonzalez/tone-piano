@@ -22,15 +22,18 @@ class SongView extends Component {
             const songs = this.props.songs;
             const id = this.props.match.params.id - 1;
 
-          this.setState({
-            title: songs[id].title,
-            musician_name: songs[id].musician_name,
-            editable: false
-        })
-      }
+            if (songs[id]) {
+                this.setState({
+                    title: songs[id].title,
+                    musician_name: songs[id].musician_name,
+                    notes: songs[id].notes,
+                    editable: false
+                })
+            }
+        }
     }
 
-    handleNote = (note) => {
+    handleAddNote = (note) => {
       playTone(note);
       if (this.state.notes.length > 0) {
         const lastSongTime = this.state.notes[this.state.notes.length - 1].time;
@@ -83,11 +86,10 @@ class SongView extends Component {
             {this.props.newSong ? (
               <>
               New Song!
-                <Piano saveNote={this.handleNote} />
+                <Piano saveNote={this.handleAddNote} />
                 <SongControls 
                   showSong={this.state} 
                   editable={true} 
-                  notes={this.state.notes} 
                   handleChange={this.handleChange}
                   clearNotes={this.clearNotes} 
                   playSong={playSong} 
@@ -97,7 +99,7 @@ class SongView extends Component {
             ) : (
               <>
                 Song View!
-                <SongControls showSong={this.state} editable={false} />
+                <SongControls showSong={this.state} editable={false} playSong={playSong} />
               </>
               )}
         </div>

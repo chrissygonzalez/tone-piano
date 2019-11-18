@@ -6,7 +6,6 @@ import { postSong } from '../actions/postSong'
 import NavBar from '../components/NavBar';
 import SongList from '../components/SongList';
 import SongView from '../components/SongView';
-// import ComposeContainer from '../containers/ComposeContainer';
 
 class SongsContainer extends Component {
     componentDidMount() {
