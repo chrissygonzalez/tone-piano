@@ -3,8 +3,7 @@ import SongControls from '../containers/SongControls';
 import Piano from '../containers/Piano';
 import { connect } from 'react-redux';
 import { postSong } from '../actions/postSong';
-import { playTone } from '../tone/SongFunctions';
-import { playSong } from '../tone/SongFunctions';
+import { playTone, playSong } from '../tone/SongFunctions';
 
 class SongView extends Component {
     constructor(props){
@@ -81,6 +80,7 @@ class SongView extends Component {
     }
 
     render(){
+        console.log(this.props.songs);
       return (
         <div className="text-center">
             {this.props.newSong ? (
@@ -99,7 +99,7 @@ class SongView extends Component {
             ) : (
               <>
                 Song View!
-                <SongControls showSong={this.state} editable={false} playSong={playSong} />
+                <SongControls showSong={this.state} editable={false} playSong={playSong} song={this.props.songs[this.props.match.params.id - 1]} />
               </>
               )}
         </div>

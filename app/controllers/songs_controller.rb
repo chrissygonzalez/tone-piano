@@ -15,7 +15,7 @@ class SongsController < ApplicationController
 
     def show
         # song = Song.find_by(id: params[:id])
-        # render json: song, include: [:notes]
+        # render json: {id: song.id, title: song.title, musician_name: song.musician_name, notes: song.notes}
     end
 
     private
