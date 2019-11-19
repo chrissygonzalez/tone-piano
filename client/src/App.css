@@ -2,11 +2,26 @@
   text-align: center;
 }
 
+.flex-center {
+  display: flex;
+  justify-content: center;;
+}
+
 /* move this somewhere more appropriate later */
 
 body {
-  background-color: #DDC5DD;
+  background-color: #FFDE4F;
   font-family: 'Alata', sans-serif;
+}
+
+.intro {
+  font-family: 'Coiny', cursive;
+  font-weight: normal;
+  color: #3D6D76;
+  font-size: 80px;
+  /* text-shadow: -3px 5px 0 #d69ed6;
+  -webkit-text-stroke: 2px #c38dc5; */
+  text-align: center;
 }
 
 .navbar {
@@ -37,6 +52,7 @@ body {
   border-radius: 3px;
   border: none;
   padding: 5px;
+  cursor: pointer;
 }
 
 .song-list-container {
@@ -59,14 +75,36 @@ body {
 .piano {
   margin-bottom: 50px;
   padding: 10px;
+  list-style-type: none;
+  display: flex;
 }
 
-.piano button {
+.key {
   background-color: #fff;
+  position: relative;
   border: none;
-  height: 100px;
+  width: 40px;
+  height: 180px;
   margin: 2px;
   border-radius: 0 0 3px 3px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 10px;
+}
+
+.black-key {
+  position: absolute;
+  left: 27px;
+  top: -1px;
+  z-index: 100;
+  background-color: #FFDE4F;
+  width: 30px;
+  height: 110px;
+  cursor: default;
+  /* display: flex;
+  align-items: flex-end; */
 }
 
 .activeNote {

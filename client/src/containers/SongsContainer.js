@@ -22,7 +22,11 @@ class SongsContainer extends Component {
                 </Switch>
 
                 <Switch>
-                    <Route exact path="/" render={() => <SongList songs={this.props.songs} />} />
+                    <Route exact path="/songs" render={() => <SongList songs={this.props.songs} />} />
+                </Switch>
+
+                <Switch>
+                    <Route exact path="/" render={() => <h1 className="intro">Tone Piano</h1>} />
                 </Switch>
 
                 <Switch>

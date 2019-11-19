@@ -16,6 +16,7 @@ class SongView extends Component {
     }
 
     handleAddNote = (note) => {
+        console.log(note);
       playTone(note);
       if (this.state.notes.length > 0) {
         const lastSongTime = this.state.notes[this.state.notes.length - 1].time;
@@ -31,32 +32,32 @@ class SongView extends Component {
       }
     }
 
-    handleKey = (e, note) => {
+    handleKey = (e) => {
         switch (e.key) {
             case "1":
                 this.handleAddNote("C4");
                 break;
             case "2":
-                    this.handleAddNote("D4");
-                    break;
+                this.handleAddNote("D4");
+                break;
             case "3":
-                    this.handleAddNote("E4");
-                    break;
+                this.handleAddNote("E4");
+                break;
             case "4":
-                    this.handleAddNote("F4");
-                    break;
+                this.handleAddNote("F4");
+                break;
             case "5":
-                    this.handleAddNote("G4");
-                    break;
+                this.handleAddNote("G4");
+                break;
             case "6":
-                    this.handleAddNote("A4");
-                    break;
+                this.handleAddNote("A4");
+                break;
             case "7":
-                    this.handleAddNote("B4");
-                    break;
+                this.handleAddNote("B4");
+                break;
             case "8":
-                    this.handleAddNote("C5");
-                    break;
+                this.handleAddNote("C5");
+                break;
             default:
                 return;
         }
@@ -95,9 +96,9 @@ class SongView extends Component {
 
     render(){
       return (
-        <div className="text-center">
+        <div className="flex-center">
             {this.props.newSong ? (
-              <>
+              <div>
                 <Piano saveNote={this.handleAddNote} handleKey={this.handleKey}/>
                 <SongControls 
                   editable={true} 
@@ -108,7 +109,7 @@ class SongView extends Component {
                   saveSong={this.handleSave} 
                   newSong={this.props.newSong}
                   />
-              </>
+              </div>
             ) : (
                 <SongControls 
                     editable={false} 

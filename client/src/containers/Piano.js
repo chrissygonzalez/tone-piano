@@ -2,16 +2,26 @@ import React from 'react';
 
 const Piano = (props) => {
     return (
-        <div className="piano" onKeyDown={e => props.handleKey(e)}>
-            <button onClick={() => props.saveNote('C4')}>C</button>
-            <button onClick={() => props.saveNote('D4')}>D</button>
-            <button onClick={() => props.saveNote('E4')}>E</button>
-            <button onClick={() => props.saveNote('F4')}>F</button>
-            <button onClick={() => props.saveNote('G4')}>G</button>
-            <button onClick={() => props.saveNote('A4')}>A</button>
-            <button onClick={() => props.saveNote('B4')}>B</button>
-            <button onClick={() => props.saveNote('C5')}>C</button>
-        </div>
+        <ul className="piano" onKeyDown={e => props.handleKey(e)}>
+            <li className="key" onClick={() => props.saveNote('C4')} tabIndex={1}>1
+                <div className="black-key"></div>
+            </li>
+            <li className="key" onClick={() => props.saveNote('D4')} tabIndex={2}>2
+                <div className="black-key"></div>
+            </li>
+            <li className="key" onClick={() => props.saveNote('E4')} tabIndex={3}>3</li>
+            <li className="key" onClick={() => props.saveNote('F4')} tabIndex={4}>4
+                <div className="black-key"></div>
+            </li>
+            <li className="key" onClick={() => props.saveNote('G4')} tabIndex={5}>5
+                <div className="black-key"></div>
+            </li>
+            <li className="key" onClick={() => props.saveNote('A4')} tabIndex={6}>6
+                <div className="black-key"></div>
+            </li>
+            <li className="key" onClick={() => props.saveNote('B4')} tabIndex={7}>7</li>
+            <li className="key" onClick={() => props.saveNote('C5')} tabIndex={8}>8</li>
+        </ul>
     )
 }
 
