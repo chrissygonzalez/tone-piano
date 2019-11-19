@@ -11,25 +11,8 @@ class SongView extends Component {
       this.state = {
         title: "",
         musician_name: "",
-        editable: true,
         notes: []
       }
-    }
-
-    componentDidMount = () => {
-        if (!this.props.newSong) {
-            const songs = this.props.songs;
-            const id = this.props.match.params.id - 1;
-
-            if (songs[id]) {
-                this.setState({
-                    title: songs[id].title,
-                    musician_name: songs[id].musician_name,
-                    notes: songs[id].notes,
-                    editable: false
-                })
-            }
-        }
     }
 
     handleAddNote = (note) => {
@@ -62,7 +45,7 @@ class SongView extends Component {
       this.setState({
           [event.target.name]: event.target.value
       })
-  }
+    }
 
     clearNotes = () => {
       this.setState({
@@ -80,38 +63,32 @@ class SongView extends Component {
     }
 
     render(){
-        console.log(this.props.songs);
       return (
         <div className="text-center">
             {this.props.newSong ? (
               <>
-              New Song!
                 <Piano saveNote={this.handleAddNote} />
                 <SongControls 
-                  showSong={this.state} 
                   editable={true} 
+                  songState={this.state} 
                   handleChange={this.handleChange}
                   clearNotes={this.clearNotes} 
                   playSong={playSong} 
                   saveSong={this.handleSave} 
+                  newSong={this.props.newSong}
                   />
               </>
             ) : (
-              <>
-                Song View!
-                <SongControls showSong={this.state} editable={false} playSong={playSong} song={this.props.songs[this.props.match.params.id - 1]} />
-              </>
+                <SongControls 
+                    editable={false} 
+                    id={this.props.match.params.id}
+                    playSong={playSong} 
+                     />
               )}
         </div>
       )
     }
 }
-
-const mapStateToProps = state => {
-  return {
-      song: state.song
-  };
-};
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -120,4 +97,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SongView);
+export default connect(null, mapDispatchToProps)(SongView);
