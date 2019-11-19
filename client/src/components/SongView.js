@@ -31,6 +31,37 @@ class SongView extends Component {
       }
     }
 
+    handleKey = (e, note) => {
+        switch (e.key) {
+            case "1":
+                this.handleAddNote("C4");
+                break;
+            case "2":
+                    this.handleAddNote("D4");
+                    break;
+            case "3":
+                    this.handleAddNote("E4");
+                    break;
+            case "4":
+                    this.handleAddNote("F4");
+                    break;
+            case "5":
+                    this.handleAddNote("G4");
+                    break;
+            case "6":
+                    this.handleAddNote("A4");
+                    break;
+            case "7":
+                    this.handleAddNote("B4");
+                    break;
+            case "8":
+                    this.handleAddNote("C5");
+                    break;
+            default:
+                return;
+        }
+    }
+
     handleSave = () => {
       const songObject = {
         title: this.state.title,
@@ -67,7 +98,7 @@ class SongView extends Component {
         <div className="text-center">
             {this.props.newSong ? (
               <>
-                <Piano saveNote={this.handleAddNote} />
+                <Piano saveNote={this.handleAddNote} handleKey={this.handleKey}/>
                 <SongControls 
                   editable={true} 
                   songState={this.state} 

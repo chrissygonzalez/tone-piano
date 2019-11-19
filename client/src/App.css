@@ -6,6 +6,7 @@
 
 body {
   background-color: #DDC5DD;
+  font-family: 'Alata', sans-serif;
 }
 
 .navbar {
@@ -36,6 +37,23 @@ body {
   border-radius: 3px;
   border: none;
   padding: 5px;
+}
+
+.song-list-container {
+  width: 80%;
+  margin: auto;
+}
+
+.song-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.song-thumb {
+  background-color: #fff;
+  padding: 5px;
+  margin: 10px;
 }
 
 .piano {

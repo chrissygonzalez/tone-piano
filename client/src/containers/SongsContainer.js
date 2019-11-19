@@ -13,13 +13,12 @@ class SongsContainer extends Component {
     }
 
     render() {
-        // IDEA: just connect this component to dispatch, let SongList and SongView connect to state? maybe
         return (
             <div>
                 <NavBar />
 
                 <Switch>
-                    <Route exact path="/songs/:id" render={(routerProps) => <SongView {...routerProps} songs={this.props.songs} newSong={false}/>} />
+                    <Route exact path="/songs/:id" render={(routerProps) => <SongView {...routerProps} newSong={false}/>} />
                 </Switch>
 
                 <Switch>
