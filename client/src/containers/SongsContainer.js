@@ -18,7 +18,7 @@ class SongsContainer extends Component {
                 <NavBar />
 
                 <Switch>
-                    <Route exact path="/songs/:id" render={(routerProps) => <SongView {...routerProps} newSong={false}/>} />
+                    <Route exact path="/songs/:id" render={(routerProps) => <SongView {...routerProps} newSong={false}/>} toList={false} />
                 </Switch>
 
                 <Switch>
@@ -26,11 +26,7 @@ class SongsContainer extends Component {
                 </Switch>
 
                 <Switch>
-                    <Route exact path="/" render={() => <h1 className="intro">Tone Piano</h1>} />
-                </Switch>
-
-                <Switch>
-                    <Route exact path="/new" render={() => <SongView newSong={true} />} />
+                    <Route exact path="/new" render={() => <SongView newSong={true}  toList={false} />} />
                 </Switch>
             </div>
         )

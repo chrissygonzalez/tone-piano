@@ -4,6 +4,7 @@ import Piano from '../containers/Piano';
 import { connect } from 'react-redux';
 import { postSong } from '../actions/postSong';
 import { playTone, playSong } from '../tone/SongFunctions';
+import { Redirect } from 'react-router-dom'
 
 class SongView extends Component {
     constructor(props){
@@ -11,12 +12,12 @@ class SongView extends Component {
       this.state = {
         title: "",
         musician_name: "",
-        notes: []
+        notes: [],
+        toList: this.props.toList
       }
     }
 
     handleAddNote = (note) => {
-        console.log(note);
       playTone(note);
       if (this.state.notes.length > 0) {
         const lastSongTime = this.state.notes[this.state.notes.length - 1].time;
@@ -71,6 +72,10 @@ class SongView extends Component {
       }
       this.props.postSong(songObject);
       this.clearSong();
+      this.setState({
+          ...this.state,
+          toList: true
+      })
     }
 
     handleChange = event => {
@@ -95,30 +100,38 @@ class SongView extends Component {
     }
 
     render(){
-      return (
-        <div className="flex-center">
-            {this.props.newSong ? (
-              <div>
-                <Piano saveNote={this.handleAddNote} handleKey={this.handleKey}/>
-                <SongControls 
-                  editable={true} 
-                  songState={this.state} 
-                  handleChange={this.handleChange}
-                  clearNotes={this.clearNotes} 
-                  playSong={playSong} 
-                  saveSong={this.handleSave} 
-                  newSong={this.props.newSong}
-                  />
-              </div>
-            ) : (
-                <SongControls 
-                    editable={false} 
-                    id={this.props.match.params.id}
-                    playSong={playSong} 
-                     />
-              )}
-        </div>
-      )
+        if (this.state.toList === true) {
+            return <Redirect to='/songs' />
+          } else if (this.props.newSong) {
+            return (
+                <div className="flex-center">
+                      <div>
+                        <Piano saveNote={this.handleAddNote} handleKey={this.handleKey}/>
+                        <SongControls 
+                          editable={true} 
+                          songState={this.state} 
+                          handleChange={this.handleChange}
+                          clearNotes={this.clearNotes} 
+                          playSong={playSong} 
+                          saveSong={this.handleSave} 
+                          newSong={this.props.newSong}
+                          />
+                      </div>
+                </div>
+            )
+          } else {
+            return (
+                <div className="flex-center">
+                    <div>
+                        <SongControls 
+                        editable={false} 
+                        id={this.props.match.params.id}
+                        playSong={playSong} 
+                        />
+                    </div>
+                </div>
+            )
+          }
     }
 }
 
