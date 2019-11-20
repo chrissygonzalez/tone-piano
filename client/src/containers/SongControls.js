@@ -9,17 +9,19 @@ class SongControls extends Component {
         this.props.fetchSongs();
     }
 
-    inlineBlock = {display: 'inline-block', padding: '5px'}
+    // inlineBlock = {display: 'flex', padding: '5px'}
 
     render(){
         const thisSong = this.props.songs[this.props.id - 1];
         if (thisSong && !this.props.editable) {
         return (
             <div className="songControls">
-                <h2>{thisSong.title} by {thisSong.musician_name}</h2>
+                <h2>{thisSong.title} <span className="normal-weight">written by</span> {thisSong.musician_name}</h2>
                 <button onClick={() => {this.props.playSong(thisSong.notes)}}>Play Song</button>
-                <div>{thisSong.notes.map((note, index) => {
-                    return <Note key={index} index={'note-' + index} style={this.inlineBlock} note={note}/>})}
+                <div className="flex light-shade">
+                    {thisSong.notes.map((note, index) => {
+                        return <Note key={index} index={'note-' + index} style={this.inlineBlock} note={note}/>
+                    })}
                 </div>
             </div>
         )
@@ -34,8 +36,10 @@ class SongControls extends Component {
                     <button onClick={() => {this.props.playSong(this.props.songState.notes)}}>Play Song</button>
                     <button onClick={this.props.clearNotes}>Clear Notes</button>
                     <button onClick={this.props.saveSong}>Save Song</button>
-                    <div>{this.props.songState.notes.map((note, index) => {
-                        return <Note key={index} index={'note-' + index} style={this.inlineBlock} note={note}/>})}
+                    <div className="flex light-shade">
+                        {this.props.songState.notes.map((note, index) => {
+                            return <Note key={index} index={'note-' + index} note={note}/>
+                        })}
                     </div>
                 </div>
             )

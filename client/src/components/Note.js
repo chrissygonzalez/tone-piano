@@ -4,9 +4,9 @@ import QuarterNote from '../svgs/QuarterNote';
 class Note extends Component {
     render() {
         return (
-        <div key={this.props.index} id={this.props.index} className="song" style={this.props.style}>
-        {this.props.note.note}
-            <QuarterNote />
+        <div key={this.props.index} id={this.props.index} className="song flex flex-column">
+            <QuarterNote width={30}/>
+            {this.props.note.note}
         </div>
     )}
 }

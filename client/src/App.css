@@ -11,11 +11,27 @@
   flex-direction: column;
 }
 
+.flex {
+  display: flex;
+}
+
+.light-shade {
+  background-color: #EAF9FC;
+}
+
+.normal-weight {
+  font-weight: normal;
+}
+
 /* move this somewhere more appropriate later */
 
 body {
   background-color: #FFDE4F;
   font-family: 'Alata', sans-serif;
+}
+
+h2 {
+  font-size: 18px;
 }
 
 .intro {
@@ -73,10 +89,11 @@ body {
 }
 
 .songControls {
-  min-height: 150px;
+  min-height: 700px;
   background-color: #fff;
-  width: 70%;
+  width: 650px;
   margin: auto;
+  padding: 20px;
 }
 
 .songControls button {

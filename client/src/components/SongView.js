@@ -104,8 +104,8 @@ class SongView extends Component {
             return <Redirect to='/songs' />
           } else if (this.props.newSong) {
             return (
-                <div className="flex-center">
-                      <div>
+                <div className="flex flex-column flex-center">
+                      {/* <div> */}
                         <Piano saveNote={this.handleAddNote} handleKey={this.handleKey}/>
                         <SongControls 
                           editable={true} 
@@ -116,7 +116,7 @@ class SongView extends Component {
                           saveSong={this.handleSave} 
                           newSong={this.props.newSong}
                           />
-                      </div>
+                      {/* </div> */}
                 </div>
             )
           } else {

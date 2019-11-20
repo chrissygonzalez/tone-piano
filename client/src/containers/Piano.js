@@ -2,7 +2,7 @@ import React from 'react';
 
 const Piano = (props) => {
     return (
-        <ul className="piano" onKeyDown={e => props.handleKey(e)}>
+        <ul className="piano flex-center" onKeyDown={e => props.handleKey(e)}>
             <li className="key" onClick={() => props.saveNote('C4')} tabIndex={1}>1
                 <div className="black-key"></div>
             </li>
