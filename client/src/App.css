@@ -89,11 +89,33 @@ h2 {
 }
 
 .songControls {
-  min-height: 700px;
-  background-color: #fff;
-  width: 650px;
-  margin: auto;
+  /* min-height: 700px; */
+  /* background-color: #fff; */
+  /* width: 650px; */
+  /* margin: auto; */
   padding: 20px;
+}
+
+.song-grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-auto-rows: 100px; 
+}
+
+.piano-controls-grid {
+  grid-column-start: 2; 
+  grid-column-end: 3; 
+  grid-row-start: 1; 
+  grid-row-end: 9;
+  /* background-color: #fff; */
+}
+
+.song-controls-grid {
+  grid-column-start: 2; 
+  grid-column-end: 3; 
+  grid-row-start: 1; 
+  grid-row-end: 9;
+  background-color: #fff;
 }
 
 .songControls button {
