@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SongControls from '../containers/SongControls';
-import Piano from '../containers/Piano';
+import SongControls from './SongControls';
+import Piano from '../components/Piano';
 import { connect } from 'react-redux';
 import { postSong } from '../actions/postSong';
 import { playTone, playSong } from '../tone/SongFunctions';

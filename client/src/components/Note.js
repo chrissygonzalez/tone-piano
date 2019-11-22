@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import QuarterNote from '../svgs/QuarterNote';
 
-class Note extends Component {
-    render() {
+const Note = (props) => {
         return (
-        <div key={this.props.index} id={this.props.index} className="song flex flex-column">
+        <div key={props.index} id={props.index} className="song flex flex-column">
             <QuarterNote width={30}/>
-            {this.props.note.note}
+            {props.note.note}
         </div>
-    )}
+    )
 }
 
 export default Note;

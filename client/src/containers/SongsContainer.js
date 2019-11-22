@@ -5,7 +5,7 @@ import { fetchSongs } from '../actions/fetchSongs'
 import { postSong } from '../actions/postSong'
 import NavBar from '../components/NavBar';
 import SongList from '../components/SongList';
-import SongView from '../components/SongView';
+import SongView from './SongView';
 
 class SongsContainer extends Component {
     componentDidMount() {

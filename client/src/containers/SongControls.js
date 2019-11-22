@@ -18,7 +18,7 @@ class SongControls extends Component {
             <div className="songControls">
                 <h2>{thisSong.title} <span className="normal-weight">written by</span> {thisSong.musician_name}</h2>
                 <button onClick={() => {this.props.playSong(thisSong.notes)}}>Play Song</button>
-                <div className="flex light-shade">
+                <div className="flex light-shade note-container">
                     {thisSong.notes.map((note, index) => {
                         return <Note key={index} index={'note-' + index} style={this.inlineBlock} note={note}/>
                     })}
@@ -36,7 +36,8 @@ class SongControls extends Component {
                     <button onClick={() => {this.props.playSong(this.props.songState.notes)}}>Play Song</button>
                     <button onClick={this.props.clearNotes}>Clear Notes</button>
                     <button onClick={this.props.saveSong}>Save Song</button>
-                    <div className="flex light-shade">
+                    {/* break this out into its own component */}
+                    <div className="flex light-shade note-container">
                         {this.props.songState.notes.map((note, index) => {
                             return <Note key={index} index={'note-' + index} note={note}/>
                         })}
