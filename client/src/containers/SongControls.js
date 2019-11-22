@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Note from '../components/Note';
 import SongForm from '../components/SongForm';
+import SongNotes from '../components/SongNotes';
 import { connect } from 'react-redux';
 import { fetchSongs } from '../actions/fetchSongs'
 
@@ -9,8 +9,6 @@ class SongControls extends Component {
         this.props.fetchSongs();
     }
 
-    // inlineBlock = {display: 'flex', padding: '5px'}
-
     render(){
         const thisSong = this.props.songs[this.props.id - 1];
         if (thisSong && !this.props.editable) {
@@ -18,11 +16,7 @@ class SongControls extends Component {
             <div className="songControls">
                 <h2>{thisSong.title} <span className="normal-weight">written by</span> {thisSong.musician_name}</h2>
                 <button onClick={() => {this.props.playSong(thisSong.notes)}}>Play Song</button>
-                <div className="flex light-shade note-container">
-                    {thisSong.notes.map((note, index) => {
-                        return <Note key={index} index={'note-' + index} style={this.inlineBlock} note={note}/>
-                    })}
-                </div>
+                <SongNotes notes={thisSong.notes} />
             </div>
         )
         } else if (this.props.newSong){
@@ -36,12 +30,7 @@ class SongControls extends Component {
                     <button onClick={() => {this.props.playSong(this.props.songState.notes)}}>Play Song</button>
                     <button onClick={this.props.clearNotes}>Clear Notes</button>
                     <button onClick={this.props.saveSong}>Save Song</button>
-                    {/* break this out into its own component */}
-                    <div className="flex light-shade note-container">
-                        {this.props.songState.notes.map((note, index) => {
-                            return <Note key={index} index={'note-' + index} note={note}/>
-                        })}
-                    </div>
+                    <SongNotes notes={this.props.songState.notes} />
                 </div>
             )
         } else {
