@@ -3,7 +3,7 @@ import Note from '../components/Note';
 
 const SongNotes = (props) => {
         return (
-        <div className="flex light-shade note-container">
+        <div className="flex note-container">
             {props.notes.map((note, index) => {
                 return <Note key={index} index={'note-' + index} note={note} className={placeNote(note)}/>
             })}
@@ -14,21 +14,21 @@ const SongNotes = (props) => {
 const placeNote = (note) => {
     switch (note.note) {
         case 'C4':
-            return 'mt-70';
+            return 'c4';
         case 'D4':
-            return 'mt-60';
+            return 'd4';
         case 'E4':
-            return 'mt-50';
+            return 'e4';
         case 'F4':
-            return 'mt-40';
+            return 'f4';
         case 'G4':
-            return 'mt-30';
+            return 'g4';
         case 'A4':
-            return 'mt-20';
+            return 'a4';
         case 'B4':
-            return 'mt-10';
+            return 'b4';
         case 'C5':
-            return 'mt-0';
+            return 'c5';
         default:
             return null;
     }

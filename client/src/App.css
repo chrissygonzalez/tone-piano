@@ -117,38 +117,41 @@ h2 {
 
 .note-container {
   margin-top: 20px;
+  background-image: url(./images/staff.png);
+  background-repeat: repeat-x;
+  height: 150px;
 }
 
-.mt-70 {
-  margin-top: 70px;
+.c4 {
+  margin-top: 53px;
 }
 
-.mt-60 {
-  margin-top: 60px;
-}
-
-.mt-50 {
-  margin-top: 50px;
-}
-
-.mt-40 {
-  margin-top: 40px;
-}
-
-.mt-30 {
+.d4 {
   margin-top: 30px;
 }
 
-.mt-20 {
-  margin-top: 20px;
+.e4 {
+  margin-top: 11px;
 }
 
-.mt-10 {
-  margin-top: 10px;
+.f4{
+  margin-top: -11px;
 }
 
-.mt-0 {
-  margin-top: 0px;
+.g4 {
+  margin-top: -37px;
+}
+
+.a4 {
+  margin-top: -60px;
+}
+
+.b4 {
+  margin-top: -80px;
+}
+
+.c5 {
+  margin-top: -105px;
 }
 
 .song-list-container {
