@@ -49,6 +49,9 @@ button {
 input[type="text"] {
   border: none;
   border-bottom: 1px solid #ccc;
+  /* font-size: 18px; */
+  padding-bottom: 5px;
+  text-align: center;
 }
 
 .intro {
@@ -131,6 +134,7 @@ input[type="text"] {
   background-image: url(./images/staff.png);
   background-repeat: repeat-x;
   height: 150px;
+  flex-grow: 1;
 }
 
 .c4 {
@@ -212,8 +216,14 @@ input[type="text"] {
   color: #3D6D76;
 }
 
-.song-form {
-  padding-top: 15px;
+.song-view-heading {
+  padding-top: 35px;
+  padding-bottom: 35px;
+  font-size: 24px;
+}
+
+.song-form-by {
+  margin: 0 15px;
 }
 
 .piano {
@@ -236,6 +246,7 @@ input[type="text"] {
   justify-content: center;
   align-items: flex-end;
   padding-bottom: 10px;
+  color: #E5C229;
 }
 
 .black-key {
@@ -243,7 +254,7 @@ input[type="text"] {
   left: 27px;
   top: -1px;
   z-index: 100;
-  background-color: #FFDE4F;
+  background-color: #7CE0C8;
   width: 30px;
   height: 110px;
   cursor: default;

@@ -14,8 +14,8 @@ class SongControls extends Component {
         if (thisSong && !this.props.editable) {
             return (
                 <div className="songControls">
-                    <div className="flex space-between">
-                        <h2>{thisSong.title} <span className="normal-weight">written by</span> {thisSong.musician_name}</h2>
+                    <div className="flex-column flex-center">
+                        <h2 className="song-view-heading">{thisSong.title} <span className="normal-weight"> by</span> {thisSong.musician_name}</h2>
                         <button className="link-button" onClick={() => {this.props.playSong(thisSong.notes)}}>Play Song</button>
                     </div>
                     <SongNotes notes={thisSong.notes} />
@@ -24,7 +24,7 @@ class SongControls extends Component {
         } else if (this.props.newSong){
             return (
                 <div className="songControls">
-                    <div className="flex space-between">
+                    <div className="flex-column flex-center">
                         <SongForm 
                             onChange={event => {this.props.handleChange(event)}} 
                             title={this.props.songState.title} 
