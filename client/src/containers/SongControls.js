@@ -24,14 +24,18 @@ class SongControls extends Component {
         } else if (this.props.newSong){
             return (
                 <div className="songControls">
-                    <SongForm 
-                        onChange={event => {this.props.handleChange(event)}} 
-                        title={this.props.songState.title} 
-                        musician_name={this.props.songState.musician_name} 
-                        />
-                    <button className="link-button" onClick={() => {this.props.playSong(this.props.songState.notes)}}>Play Song</button>
-                    <button className="link-button" onClick={this.props.clearNotes}>Clear Notes</button>
-                    <button className="link-button" onClick={this.props.saveSong}>Save Song</button>
+                    <div className="flex space-between">
+                        <SongForm 
+                            onChange={event => {this.props.handleChange(event)}} 
+                            title={this.props.songState.title} 
+                            musician_name={this.props.songState.musician_name} 
+                            />
+                        <div>
+                            <button className="link-button" onClick={this.props.clearNotes}>Clear Notes</button>
+                            <button className="link-button" onClick={this.props.saveSong}>Save Song</button>
+                            <button className="link-button" onClick={() => {this.props.playSong(this.props.songState.notes)}}>Play Song</button>
+                        </div>
+                    </div>
                     <SongNotes notes={this.props.songState.notes} />
                 </div>
             )

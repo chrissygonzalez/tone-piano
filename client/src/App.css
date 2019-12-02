@@ -19,6 +19,10 @@
   justify-content: space-between;
 }
 
+.flex-center {
+  align-items: center;
+}
+
 .light-shade {
   background-color: #EAF9FC;
 }
@@ -52,9 +56,11 @@ input[type="text"] {
   font-weight: normal;
   color: #3D6D76;
   font-size: 80px;
-  /* text-shadow: -3px 5px 0 #d69ed6;
-  -webkit-text-stroke: 2px #c38dc5; */
   text-align: center;
+}
+
+.intro-buttons {
+  margin-top: 75px;
 }
 
 .link-button {
@@ -120,15 +126,6 @@ input[type="text"] {
   min-width: 800px;
 }
 
-/* .songControls button {
-  background-color: #C56FC5;
-  color: #fff;
-  border-radius: 3px;
-  border: none;
-  padding: 5px;
-  cursor: pointer;
-} */
-
 .note-container {
   margin-top: 20px;
   background-image: url(./images/staff.png);
@@ -162,7 +159,6 @@ input[type="text"] {
 
 .b4 {
   margin-top: -26px;
-  /* padding-left: 8px; */
 }
 
 .c5 {
@@ -217,14 +213,11 @@ input[type="text"] {
   width: 30px;
   height: 110px;
   cursor: default;
-  /* display: flex;
-  align-items: flex-end; */
 }
 
 .activeNote {
   animation: 0.5s linear 0s turnYellow;
   background-color: none;
-  /* border: 1px solid red; */
 }
 
 @keyframes turnYellow {
