@@ -12,13 +12,15 @@ class SongControls extends Component {
     render(){
         const thisSong = this.props.songs[this.props.id - 1];
         if (thisSong && !this.props.editable) {
-        return (
-            <div className="songControls">
-                <h2>{thisSong.title} <span className="normal-weight">written by</span> {thisSong.musician_name}</h2>
-                <button onClick={() => {this.props.playSong(thisSong.notes)}}>Play Song</button>
-                <SongNotes notes={thisSong.notes} />
-            </div>
-        )
+            return (
+                <div className="songControls">
+                    <div className="flex space-between">
+                        <h2>{thisSong.title} <span className="normal-weight">written by</span> {thisSong.musician_name}</h2>
+                        <button className="link-button" onClick={() => {this.props.playSong(thisSong.notes)}}>Play Song</button>
+                    </div>
+                    <SongNotes notes={thisSong.notes} />
+                </div>
+            )
         } else if (this.props.newSong){
             return (
                 <div className="songControls">
@@ -27,9 +29,9 @@ class SongControls extends Component {
                         title={this.props.songState.title} 
                         musician_name={this.props.songState.musician_name} 
                         />
-                    <button onClick={() => {this.props.playSong(this.props.songState.notes)}}>Play Song</button>
-                    <button onClick={this.props.clearNotes}>Clear Notes</button>
-                    <button onClick={this.props.saveSong}>Save Song</button>
+                    <button className="link-button" onClick={() => {this.props.playSong(this.props.songState.notes)}}>Play Song</button>
+                    <button className="link-button" onClick={this.props.clearNotes}>Clear Notes</button>
+                    <button className="link-button" onClick={this.props.saveSong}>Save Song</button>
                     <SongNotes notes={this.props.songState.notes} />
                 </div>
             )

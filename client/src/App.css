@@ -15,6 +15,10 @@
   display: flex;
 }
 
+.space-between {
+  justify-content: space-between;
+}
+
 .light-shade {
   background-color: #EAF9FC;
 }
@@ -32,6 +36,15 @@ body {
 
 h2 {
   font-size: 18px;
+}
+
+button {
+  border: none;
+}
+
+input[type="text"] {
+  border: none;
+  border-bottom: 1px solid #ccc;
 }
 
 .intro {
@@ -104,16 +117,17 @@ h2 {
   grid-row-start: 1; 
   grid-row-end: 9;
   background-color: #fff;
+  min-width: 800px;
 }
 
-.songControls button {
+/* .songControls button {
   background-color: #C56FC5;
   color: #fff;
   border-radius: 3px;
   border: none;
   padding: 5px;
   cursor: pointer;
-}
+} */
 
 .note-container {
   margin-top: 20px;
