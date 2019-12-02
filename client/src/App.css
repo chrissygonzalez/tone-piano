@@ -209,13 +209,13 @@ h2 {
 
 .activeNote {
   animation: 0.5s linear 0s turnYellow;
-  background-color: white;
+  background-color: none;
   /* border: 1px solid red; */
 }
 
 @keyframes turnYellow {
-  0% {background-color: white;}
+  0% {background-color: none;}
   50% {background-color: yellow;}
-  100% {background-color: white;}
+  100% {background-color: none;}
 }
 

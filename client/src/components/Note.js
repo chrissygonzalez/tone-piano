@@ -1,6 +1,6 @@
 import React from 'react';
-import QuarterNote from '../svgs/QuarterNote';
-import QuarterNoteDown from '../svgs/QuarterNoteDown';
+// import QuarterNote from '../svgs/QuarterNote';
+// import QuarterNoteDown from '../svgs/QuarterNoteDown';
 
 const Note = (props) => {
     const styles = `${props.noteAppearance.style} song flex`;

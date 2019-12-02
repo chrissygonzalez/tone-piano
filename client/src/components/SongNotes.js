@@ -2,13 +2,18 @@ import React from 'react';
 import Note from '../components/Note';
 import QuarterNote from '../svgs/QuarterNote';
 import QuarterNoteDown from '../svgs/QuarterNoteDown';
+import MiddleC from '../svgs/MiddleC';
+import TrebleClef from '../svgs/TrebleClef';
 
 const SongNotes = (props) => {
         return (
+        <div className="flex">
+        <TrebleClef width={60} fill={'#E5C229'} />
         <div className="flex note-container">
             {props.notes.map((note, index) => {
                 return <Note key={index} index={'note-' + index} note={note} noteAppearance={placeNote(note)}/>
             })}
+        </div>
         </div>
     )
 }
@@ -16,7 +21,7 @@ const SongNotes = (props) => {
 const placeNote = (note) => {
     switch (note.note) {
         case 'C4':
-            return {style: 'c4', shape: <QuarterNote width={50} />};
+            return {style: 'c4', shape: <MiddleC width={50} />};
         case 'D4':
             return {style: 'd4', shape:  <QuarterNote width={50} />};
         case 'E4':
