@@ -13,7 +13,7 @@ class SongView extends Component {
         title: "",
         musician_name: "",
         notes: [],
-        toList: this.props.toList
+        redirectToList: this.props.redirectToList
       }
     }
 
@@ -74,7 +74,7 @@ class SongView extends Component {
       this.clearSong();
       this.setState({
           ...this.state,
-          toList: true
+          redirectToList: true
       })
     }
 
@@ -100,7 +100,7 @@ class SongView extends Component {
     }
 
     render(){
-        if (this.state.toList === true) {
+        if (this.state.redirectToList === true) {
             return <Redirect to='/songs' />
           } else if (this.props.newSong) {
             return (

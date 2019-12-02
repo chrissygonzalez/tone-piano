@@ -47,10 +47,10 @@ const mapStateToProps = state => {
     };
   };
 
-  const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
     return {
         fetchSongs: () => dispatch(fetchSongs())
     };
-  };
-  
-  export default connect(mapStateToProps, mapDispatchToProps)(SongControls);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SongControls);
