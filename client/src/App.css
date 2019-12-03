@@ -107,7 +107,8 @@ input[type="text"] {
 
 .navlist-selected {
   border-bottom: 5px solid #3D6D76;
-  background-color: #EAF9FC;
+  /* background-color: #EAF9FC; */
+  font-weight: bold;
 }
 
 .songControls {
@@ -124,14 +125,16 @@ input[type="text"] {
   grid-column-start: 2; 
   grid-column-end: 3; 
   grid-row-start: 1; 
-  grid-row-end: 20;
+  grid-row-end: 12;
   background-color: #fff;
   min-width: 800px;
 }
 
 .note-container {
   margin-top: 20px;
+  background-image: url(./images/staff.png);
   background-repeat: repeat-x;
+  background-position: 0 50px;
   height: 150px;
   flex-grow: 1;
   flex-wrap: wrap;
@@ -189,6 +192,8 @@ input[type="text"] {
   display: flex;
   flex-wrap: wrap;
   list-style-type: none;
+  justify-content: center;
+  padding-inline-start: 0;
 }
 
 .song-thumb {
