@@ -10,8 +10,8 @@ class SongView extends Component {
     constructor(props){
       super(props);
       this.state = {
-        title: "",
-        musician_name: "",
+        title: "Untitled Song",
+        musician_name: "Anonymous",
         notes: [],
         redirectToList: this.props.redirectToList
       }

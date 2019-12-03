@@ -6,16 +6,22 @@ import MiddleC from '../svgs/MiddleC';
 import TrebleClef from '../svgs/TrebleClef';
 
 const SongNotes = (props) => {
+    if (props.notes.length) {
         return (
-        <div className="flex">
-            <TrebleClef width={60} fill={'#E5C229'} />
-            <div className="flex note-container">
-                {props.notes.map((note, index) => {
-                    return <Note key={index} index={'note-' + index} note={note} noteAppearance={placeNote(note)}/>
-                })}
+            <div className="flex">
+                <div className="treble-clef">
+                    <TrebleClef width={60} fill={'#E5C229'} />
+                </div>
+                <div className="flex note-container">
+                    {props.notes.map((note, index) => {
+                        return <Note key={index} index={'note-' + index} note={note} noteAppearance={placeNote(note)}/>
+                    })}
+                </div>
             </div>
-        </div>
-    )
+        )
+    } else {
+        return null;
+    }
 }
 
 const placeNote = (note) => {
