@@ -33,4 +33,9 @@ const playTone = (note) => {
     synth.triggerAttackRelease(note, "8n");
 }
 
-export { playSong, playTone };
+const stopPlaying = () => {
+  Tone.Transport.stop();
+  Tone.Transport.cancel(0);
+}
+
+export { playSong, playTone, stopPlaying };

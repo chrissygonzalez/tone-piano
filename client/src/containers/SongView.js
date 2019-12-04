@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import SongControls from './SongControls';
 import Piano from '../components/Piano';
+import SongNotes from '../components/SongNotes';
 import { connect } from 'react-redux';
+import { fetchSongs } from '../actions/fetchSongs'
 import { postSong } from '../actions/postSong';
 import { playTone, playSong } from '../tone/SongFunctions';
 import { Redirect } from 'react-router-dom'
@@ -15,6 +17,10 @@ class SongView extends Component {
         notes: [],
         redirectToList: this.props.redirectToList
       }
+    }
+
+    componentDidMount() {
+      this.props.fetchSongs();
     }
 
     handleAddNote = (note) => {
@@ -91,23 +97,16 @@ class SongView extends Component {
       })
     }
 
-    clearSong = () => {
-      this.setState({
-        title: "",
-        musician_name: "",
-        notes: []
-      })
-    }
-
     render(){
-        if (this.state.redirectToList === true) {
-            return <Redirect to='/songs' />
-          } else if (this.props.newSong) {
-            return (
-                <>
-                <Piano saveNote={this.handleAddNote} handleKey={this.handleKey}/>
-                <div className="song-grid">
-                    <div className="song-controls-grid">
+      if (this.state.redirectToList === true) {
+        return <Redirect to='/songs' />
+      } else if (this.props.newSong) {
+        return (
+            <>
+              <Piano saveNote={this.handleAddNote} handleKey={this.handleKey}/>
+              <div className="song-grid">
+                  <div className="song-controls-grid">
+                    <div className="songControls">
                         <SongControls 
                           editable={true} 
                           songState={this.state} 
@@ -115,32 +114,50 @@ class SongView extends Component {
                           clearNotes={this.clearNotes} 
                           playSong={playSong} 
                           saveSong={this.handleSave} 
-                          newSong={this.props.newSong}
                         />
-                    </div>
+                      </div>
+                      <SongNotes notes={this.state.notes} />
+                  </div>
+              </div>
+            </>
+        )
+      } else if (this.props.songs[this.props.match.params.id - 1]) {
+        const thisSong = this.props.songs[this.props.match.params.id - 1];
+        return (
+            <div className="song-grid">
+                <div className="song-controls-grid">
+                  <div className="songControls">
+                      <SongControls 
+                        editable={false} 
+                        notes={thisSong.notes}
+                        title={thisSong.title}
+                        musician={thisSong.musician_name}
+                        playSong={playSong} 
+                      />
+                      <SongNotes notes={thisSong.notes} />
+                  </div>
                 </div>
-                </>
-            )
-          } else {
-            return (
-                <div className="song-grid">
-                    <div className="song-controls-grid">
-                        <SongControls 
-                          editable={false} 
-                          id={this.props.match.params.id}
-                          playSong={playSong} 
-                        />
-                    </div>
-                </div>
-            )
-          }
+            </div>
+        )
+      } else {
+        return (
+          <h2>Loading...</h2>
+        )
+      }
     }
 }
 
+const mapStateToProps = state => {
+  return {
+      songs: state.songs
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
+      fetchSongs: () => dispatch(fetchSongs()),
       postSong: (songObject) => dispatch(postSong(songObject))
   };
 };
 
-export default connect(null, mapDispatchToProps)(SongView);
+export default connect(mapStateToProps, mapDispatchToProps)(SongView);
