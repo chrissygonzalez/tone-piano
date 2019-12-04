@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchSongs } from '../actions/fetchSongs'
-import { postSong } from '../actions/postSong'
 import NavBar from '../components/NavBar';
 import SongList from '../components/SongList';
 import SongView from './SongView';
@@ -35,15 +34,12 @@ class SongsContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        song: state.song,
         songs: state.songs
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        clearSong: () => dispatch({ type: 'CLEAR_SONG' }),
-        postSong: (songObject) => dispatch(postSong(songObject)),
         fetchSongs: () => dispatch(fetchSongs())
     };
 };

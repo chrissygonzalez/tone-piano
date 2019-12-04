@@ -109,13 +109,13 @@ class SongView extends Component {
                 <div className="song-grid">
                     <div className="song-controls-grid">
                         <SongControls 
-                        editable={true} 
-                        songState={this.state} 
-                        handleChange={this.handleChange}
-                        clearNotes={this.clearNotes} 
-                        playSong={playSong} 
-                        saveSong={this.handleSave} 
-                        newSong={this.props.newSong}
+                          editable={true} 
+                          songState={this.state} 
+                          handleChange={this.handleChange}
+                          clearNotes={this.clearNotes} 
+                          playSong={playSong} 
+                          saveSong={this.handleSave} 
+                          newSong={this.props.newSong}
                         />
                     </div>
                 </div>
@@ -126,9 +126,9 @@ class SongView extends Component {
                 <div className="song-grid">
                     <div className="song-controls-grid">
                         <SongControls 
-                        editable={false} 
-                        id={this.props.match.params.id}
-                        playSong={playSong} 
+                          editable={false} 
+                          id={this.props.match.params.id}
+                          playSong={playSong} 
                         />
                     </div>
                 </div>
@@ -139,8 +139,7 @@ class SongView extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-      postSong: (songObject) => dispatch(postSong(songObject)),
-      loadSavedSong: (notes) => dispatch({type: 'LOAD_SAVED_SONG', notes: notes})
+      postSong: (songObject) => dispatch(postSong(songObject))
   };
 };
 

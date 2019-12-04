@@ -11,7 +11,7 @@ class SongControls extends Component {
 
     render(){
         const thisSong = this.props.songs[this.props.id - 1];
-        if (thisSong && !this.props.editable) {
+        if (thisSong) {
             return (
                 <div className="songControls">
                     <div className="flex-column flex-center">
