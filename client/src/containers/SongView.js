@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SongControls from './SongControls';
+import SongControls from '../components/SongControls';
 import Piano from '../components/Piano';
 import SongNotes from '../components/SongNotes';
 import { connect } from 'react-redux';
@@ -77,7 +77,6 @@ class SongView extends Component {
         notes_attributes: this.state.notes
       }
       this.props.postSong(songObject);
-      this.clearSong();
       this.setState({
           ...this.state,
           redirectToList: true
@@ -106,7 +105,7 @@ class SongView extends Component {
               <Piano saveNote={this.handleAddNote} handleKey={this.handleKey}/>
               <div className="song-grid">
                   <div className="song-controls-grid">
-                    <div className="songControls">
+                    <div className="song-controls">
                         <SongControls 
                           editable={true} 
                           songState={this.state} 
@@ -115,8 +114,8 @@ class SongView extends Component {
                           playSong={playSong} 
                           saveSong={this.handleSave} 
                         />
-                      </div>
                       <SongNotes notes={this.state.notes} />
+                      </div>
                   </div>
               </div>
             </>
@@ -126,7 +125,7 @@ class SongView extends Component {
         return (
             <div className="song-grid">
                 <div className="song-controls-grid">
-                  <div className="songControls">
+                  <div className="song-controls">
                       <SongControls 
                         editable={false} 
                         notes={thisSong.notes}
