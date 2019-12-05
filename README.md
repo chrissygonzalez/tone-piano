@@ -1,6 +1,6 @@
 ## Tone Piano
 
-Tone Piano is a little Javascript piano built with a React front end, a Ruby on Rails backend, and [Tone.js](https://tonejs.github.io/).
+Tone Piano is a little Javascript piano built with a React front end, a Ruby on Rails backend, and [Tone.js](https://tonejs.github.io/). (Blog post [here](https://chrissygonzalez.github.io/building_a_piano_with_javascript).)
 
 ![Tone Piano](https://i.imgur.com/hfANoZy.gif)
 
