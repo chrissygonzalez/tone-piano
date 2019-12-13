@@ -89,7 +89,7 @@ class SongView extends Component {
       })
     }
 
-    clearNotes = () => {
+    handleClearNotes = () => {
       this.setState({
         ...this.state,
         notes: []
@@ -110,7 +110,7 @@ class SongView extends Component {
                           editable={true} 
                           songState={this.state} 
                           handleChange={this.handleChange}
-                          clearNotes={this.clearNotes} 
+                          clearNotes={this.handleClearNotes} 
                           playSong={playSong} 
                           saveSong={this.handleSave} 
                         />

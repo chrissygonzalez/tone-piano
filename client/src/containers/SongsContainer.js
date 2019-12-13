@@ -25,7 +25,7 @@ class SongsContainer extends Component {
                 </Switch>
 
                 <Switch>
-                    <Route exact path="/new" render={() => <SongView newSong={true}  toList={false} />} />
+                    <Route exact path="/new" render={() => <SongView newSong={true}  redirectToList={false} />} />
                 </Switch>
             </div>
         )
