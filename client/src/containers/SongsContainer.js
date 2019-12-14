@@ -8,9 +8,7 @@ import SongView from './SongView';
 
 class SongsContainer extends Component {
     componentDidMount() {
-        // console.log('a');
         this.props.fetchSongs();
-        // console.log('b');
     }
 
     render() {
@@ -20,13 +18,7 @@ class SongsContainer extends Component {
 
                 <Switch>
                     <Route exact path="/songs/:id" render={(routerProps) => <SongView {...routerProps} newSong={false}/>} redirectToList={false} />
-                </Switch>
-
-                <Switch>
                     <Route exact path="/songs" render={() => <SongList songs={this.props.songs} />} />
-                </Switch>
-
-                <Switch>
                     <Route exact path="/new" render={() => <SongView newSong={true}  redirectToList={false} />} />
                 </Switch>
             </div>
