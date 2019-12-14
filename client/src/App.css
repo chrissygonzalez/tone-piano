@@ -265,6 +265,11 @@ input[type="text"] {
   margin: 0;
 }
 
+.favorite {
+  cursor: pointer;
+  margin-top: 20px;
+}
+
 
 /**** PIANO ****/
 .piano {

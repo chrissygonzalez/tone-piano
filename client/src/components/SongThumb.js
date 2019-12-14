@@ -1,15 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Heart from '../svgs/Heart'; 
 
-const SongThumb = (props) => {
-  return (
-    <li key={props.song.id} className="song-thumb">
-        <Link to={`/songs/${props.song.id}`}>
-          <span className="song-title">{props.song.title}</span>
-          <p>by {props.song.musician_name}</p>
+class SongThumb extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      favorited: false,
+      color: '#999'
+    }
+  }
+
+  handleClick = () => {
+    this.setState({
+      favorited: true,
+      color: '#f00'
+    });
+  };
+
+  render() {
+    return (
+      <li key={this.props.song.id} className="song-thumb">
+
+          <Link to={`/songs/${this.props.song.id}`}>
+            <span className="song-title">{this.props.song.title}</span>
+            <p>by {this.props.song.musician_name}</p>
           </Link>
-    </li>
-  );
-};
+
+          <button className="favorite" onClick={this.handleClick}><Heart color={this.state.color} /></button>
+      </li>
+    )}
+  };
+
 
 export default SongThumb;

@@ -8,7 +8,9 @@ import SongView from './SongView';
 
 class SongsContainer extends Component {
     componentDidMount() {
+        // console.log('a');
         this.props.fetchSongs();
+        // console.log('b');
     }
 
     render() {
