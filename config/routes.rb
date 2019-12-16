@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   post '/api/songs' => 'songs#create'
   # get '/api/songs/:id' => 'songs#show'
   get '/api/song_notes/new' => 'songs#create'
+  delete '/api/songs/:id' => 'songs#destroy'
 end

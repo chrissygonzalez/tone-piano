@@ -18,6 +18,20 @@ class SongThumb extends Component {
     });
   };
 
+  handleDelete = () => {
+    console.log(this.props.song.id);
+    // const songObject = {
+    //   title: this.state.title,
+    //   musician_name: this.state.musician_name,
+    //   notes_attributes: this.state.notes
+    // }
+    // this.props.postSong(songObject);
+    // this.setState({
+    //     ...this.state,
+    //     redirectToList: true
+    // })
+  }
+
   render() {
     return (
       <li key={this.props.song.id} className="song-thumb">
@@ -28,6 +42,7 @@ class SongThumb extends Component {
           </Link>
 
           <button className="favorite" onClick={this.handleClick}><Heart color={this.state.color} /></button>
+          <button onClick={this.handleDelete}>Delete</button>
       </li>
     )}
   };

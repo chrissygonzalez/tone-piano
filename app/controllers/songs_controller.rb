@@ -18,6 +18,10 @@ class SongsController < ApplicationController
         # render json: {id: song.id, title: song.title, musician_name: song.musician_name, notes: song.notes}
     end
 
+    def destroy
+        
+    end
+
     private
     
     def song_params
