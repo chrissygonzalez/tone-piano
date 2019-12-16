@@ -1,15 +1,19 @@
-export function deleteSong() {
+export function deleteSong(id) {
     return (dispatch) => {
-      dispatch({ type: 'START_DELETING_SONG' });
-      fetch('/api/songs/delete', {
+    //   dispatch({ type: 'START_DELETING_SONG' });
+      fetch(`/api/songs/${id}/delete`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'
       },
-        body: JSON.stringify(songObject)
+        body: JSON.stringify({id: id})
     })
-        .then(response => response.json())
-        .then(songs => {
+        .then(response => {
+            console.log(response)
+            response.json()
+        })
+        .then(response => {
+            console.log(response);
           dispatch({ type: 'DELETE_SONG' })
         });
     };

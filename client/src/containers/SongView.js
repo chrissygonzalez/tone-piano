@@ -5,7 +5,6 @@ import SongNotes from '../components/SongNotes';
 import { connect } from 'react-redux';
 import { fetchSongs } from '../actions/fetchSongs'
 import { postSong } from '../actions/postSong';
-import { deleteSong } from '../actions/deleteSong';
 import { playTone, playSong } from '../tone/SongFunctions';
 import { Redirect } from 'react-router-dom';
 
@@ -156,8 +155,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
       fetchSongs: () => dispatch(fetchSongs()),
-      postSong: (songObject) => dispatch(postSong(songObject)),
-      deleteSong: id => dispatch({type: 'DELETE_SONG', id })
+      postSong: (songObject) => dispatch(postSong(songObject))
   };
 };
 

@@ -22,7 +22,7 @@ class SongList extends Component {
                 <input name='searchTerm' type='search' placeholder='Search Song Titles' onChange={e => {this.handleChange(e)}} value={this.state.searchTerm} />
                     <ul className="song-list">
                     {filteredSongs.map((song, index) => { 
-                        return <SongThumb key={index} song={song} />
+                        return <SongThumb key={index} song={song} delete={this.props.delete} />
                         })}
                     </ul>
                 </div> 

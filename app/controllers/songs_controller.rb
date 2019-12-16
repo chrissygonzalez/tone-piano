@@ -19,7 +19,7 @@ class SongsController < ApplicationController
     end
 
     def destroy
-        
+        binding.pry
     end
 
     private
