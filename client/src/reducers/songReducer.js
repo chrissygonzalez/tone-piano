@@ -27,11 +27,15 @@ export default function songReducer(state = {
           requesting: false
         };
 
+      case 'START_DELETING_SONG':
+          console.log('here');
+          return { ...state };
+
       case 'DELETE_SONG':
-        console.log('deleting');
+        console.log(`deleting song with id ${action.id}`);
         return { 
           ...state,
-          songs: [...state.songs],
+          songs: state.songs.filter(song => song.id !== action.id),
           requesting: false
         };
 
