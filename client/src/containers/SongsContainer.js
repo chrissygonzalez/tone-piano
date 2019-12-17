@@ -36,7 +36,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchSongs: () => dispatch(fetchSongs()),
-        deleteSong: id => dispatch({type: 'DELETE_SONG', id })
+        deleteSong: id => dispatch(deleteSong(id))
     };
 };
 

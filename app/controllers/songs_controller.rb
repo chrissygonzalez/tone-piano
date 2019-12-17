@@ -19,9 +19,10 @@ class SongsController < ApplicationController
     end
 
     def delete_this_song
-        binding.pry
+        # binding.pry
         song = Song.find(params[:id])
         song.delete
+        songs = Song.all
         render json: songs, include: [:notes]
     end
 

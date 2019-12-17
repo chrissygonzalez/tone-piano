@@ -28,7 +28,6 @@ export default function songReducer(state = {
         };
 
       case 'START_DELETING_SONG':
-          console.log('here');
           return { ...state };
 
       case 'DELETE_SONG':

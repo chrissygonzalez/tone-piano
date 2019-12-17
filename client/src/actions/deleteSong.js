@@ -9,12 +9,12 @@ export function deleteSong(id) {
         body: JSON.stringify({id: id})
     })
         .then(response => {
-            // console.log(response)
+            // console.log(response);
             response.json()
         })
         .then(response => {
-            console.log(response);
-          dispatch({ type: 'DELETE_SONG' })
+            // console.log(response);
+          dispatch({ type: 'DELETE_SONG', id: id })
         });
     };
   }
