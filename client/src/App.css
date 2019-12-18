@@ -10,6 +10,7 @@ h2 {
 
 button {
   border: none;
+  cursor: pointer;
 }
 
 input[type="text"] {
@@ -266,8 +267,8 @@ input[type="text"] {
 }
 
 .favorite {
-  cursor: pointer;
-  margin-top: 20px;
+  margin: 20px auto 10px auto;
+  display: block;
 }
 
 

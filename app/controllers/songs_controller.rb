@@ -18,6 +18,14 @@ class SongsController < ApplicationController
         # render json: {id: song.id, title: song.title, musician_name: song.musician_name, notes: song.notes}
     end
 
+    def delete_this_song
+        # binding.pry
+        song = Song.find(params[:id])
+        song.delete
+        songs = Song.all
+        render json: songs, include: [:notes]
+    end
+
     private
     
     def song_params

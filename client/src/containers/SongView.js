@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { fetchSongs } from '../actions/fetchSongs'
 import { postSong } from '../actions/postSong';
 import { playTone, playSong } from '../tone/SongFunctions';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 
 class SongView extends Component {
     constructor(props){

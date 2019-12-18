@@ -28,6 +28,7 @@ class SongThumb extends Component {
           </Link>
 
           <button className="favorite" onClick={this.handleClick}><Heart color={this.state.color} /></button>
+          <button onClick={() => this.props.delete(this.props.song.id)}>Delete</button>
       </li>
     )}
   };

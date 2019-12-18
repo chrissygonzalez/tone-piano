@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchSongs } from '../actions/fetchSongs'
+import { fetchSongs } from '../actions/fetchSongs';
+import { deleteSong } from '../actions/deleteSong';
 import NavBar from '../components/NavBar';
 import SongList from '../components/SongList';
 import SongView from './SongView';
@@ -18,7 +19,7 @@ class SongsContainer extends Component {
 
                 <Switch>
                     <Route exact path="/songs/:id" render={(routerProps) => <SongView {...routerProps} newSong={false}/>} redirectToList={false} />
-                    <Route exact path="/songs" render={() => <SongList songs={this.props.songs} />} />
+                    <Route exact path="/songs" render={() => <SongList songs={this.props.songs} delete={this.props.deleteSong} />} />
                     <Route exact path="/new" render={() => <SongView newSong={true}  redirectToList={false} />} />
                 </Switch>
             </div>
@@ -34,7 +35,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchSongs: () => dispatch(fetchSongs())
+        fetchSongs: () => dispatch(fetchSongs()),
+        deleteSong: id => dispatch(deleteSong(id))
     };
 };
 
