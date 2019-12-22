@@ -12,7 +12,9 @@ const playSong = (songState) => {
     new Tone.Part(function(time, value){
       Tone.Draw.schedule(function(){
         let playingNote = document.getElementById('note-' + counter);
-        playingNote.classList.add('activeNote');
+        if (playingNote) {
+          playingNote.classList.add('activeNote');
+        }
         counter += 1;
       }, time)
 
