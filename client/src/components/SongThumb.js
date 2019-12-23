@@ -6,15 +6,13 @@ class SongThumb extends Component {
   constructor(props){
     super(props);
     this.state = {
-      favorited: false,
-      color: '#999'
+      favorited: false
     }
   }
 
   handleClick = () => {
     this.setState({
-      favorited: true,
-      color: '#f00'
+      favorited: !this.state.favorited
     });
   };
 
@@ -27,7 +25,7 @@ class SongThumb extends Component {
             <p>by {this.props.song.musician_name}</p>
           </Link>
 
-          <button className="favorite" onClick={this.handleClick}><Heart color={this.state.color} /></button>
+          <button className="favorite" onClick={this.handleClick}><Heart color={this.state.favorited ? '#f00' : '#999'} /></button>
           <button onClick={() => this.props.delete(this.props.song.id)}>Delete</button>
       </li>
     )}
