@@ -97,6 +97,9 @@ class SongView extends Component {
     }
 
     render(){
+      const findThisSong = song => song.id.toString() === this.props.match.params.id
+      const thisSong = this.props.match ? this.props.songs.find(findThisSong) : null;
+
       if (this.state.redirectToList === true) {
         return <Redirect to='/songs' />
       } else if (this.props.newSong) {
@@ -120,8 +123,7 @@ class SongView extends Component {
               </div>
             </>
         )
-      } else if (this.props.songs[this.props.match.params.id - 1]) {
-        const thisSong = this.props.songs[this.props.match.params.id - 1];
+      } else if (thisSong) {
         return (
             <div className="song-grid">
                 <div className="song-controls-grid">
