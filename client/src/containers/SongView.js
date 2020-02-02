@@ -71,12 +71,16 @@ class SongView extends Component {
     }
 
     handleSave = () => {
-      const songObject = {
-        title: this.state.title,
-        musician_name: this.state.musician_name,
-        notes_attributes: this.state.notes
-      }
-      this.props.postSong(songObject);
+      const { title, musician_name, notes } = this.state;
+      const { postSong } = this.props;
+      const songObject = {  
+        title,  
+        musician_name,  
+        notes_attributes: notes  
+      }  
+      
+      postSong(songObject);
+
       this.setState({
           ...this.state,
           redirectToList: true
