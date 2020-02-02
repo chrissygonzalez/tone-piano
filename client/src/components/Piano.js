@@ -1,26 +1,17 @@
 import React from 'react';
+import PianoKey from './PianoKey';
 
 const Piano = (props) => {
     return (
         <ul className="piano flex-center" onKeyDown={e => props.handleKey(e)}>
-            <li className="key" onClick={() => props.saveNote('C4')} tabIndex={1}>1
-                <div className="black-key"></div>
-            </li>
-            <li className="key" onClick={() => props.saveNote('D4')} tabIndex={2}>2
-                <div className="black-key"></div>
-            </li>
-            <li className="key" onClick={() => props.saveNote('E4')} tabIndex={3}>3</li>
-            <li className="key" onClick={() => props.saveNote('F4')} tabIndex={4}>4
-                <div className="black-key"></div>
-            </li>
-            <li className="key" onClick={() => props.saveNote('G4')} tabIndex={5}>5
-                <div className="black-key"></div>
-            </li>
-            <li className="key" onClick={() => props.saveNote('A4')} tabIndex={6}>6
-                <div className="black-key"></div>
-            </li>
-            <li className="key" onClick={() => props.saveNote('B4')} tabIndex={7}>7</li>
-            <li className="key" onClick={() => props.saveNote('C5')} tabIndex={8}>8</li>
+            <PianoKey saveNote={() => props.saveNote('C4')} index={1} hasBlackKey /> 
+            <PianoKey saveNote={() => props.saveNote('D4')} index={2} hasBlackKey />
+            <PianoKey saveNote={() => props.saveNote('E4')} index={3} />
+            <PianoKey saveNote={() => props.saveNote('F4')} index={4} hasBlackKey /> 
+            <PianoKey saveNote={() => props.saveNote('G4')} index={5} hasBlackKey />
+            <PianoKey saveNote={() => props.saveNote('A4')} index={6} hasBlackKey />
+            <PianoKey saveNote={() => props.saveNote('B4')} index={7} />
+            <PianoKey saveNote={() => props.saveNote('C5')} index={8} />
         </ul>
     )
 }
